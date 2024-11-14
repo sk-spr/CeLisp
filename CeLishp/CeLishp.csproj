@@ -12,6 +12,9 @@
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/sk-spr/CeLisp</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
+        <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="docs\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 </Project>

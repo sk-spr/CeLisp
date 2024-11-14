@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceCeLishp_1_1Interpreter_1_1IInputValue" xml:lang="en-US">
+<title>CeLishp.Interpreter.IInputValue Interface Reference</title>
+<indexterm><primary>CeLishp.Interpreter.IInputValue</primary></indexterm>
+<para>
+
+<para>Input value that can be inserted in a tree - provides a value. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.IInputValue:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interfaceCeLishp_1_1Interpreter_1_1IInputValue__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.IInputValue:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interfaceCeLishp_1_1Interpreter_1_1IInputValue__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>object <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue_1a861721fa8c59a6bf4383aea017ffa067">GetValue</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link>        <itemizedlist>
+            <listitem><para>object <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">Run</link> (object[] input)</para>
+
+<para>Run the interpretable over the given inputs. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Input value that can be inserted in a tree - provides a value. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfaceCeLishp_1_1Interpreter_1_1IInputValue_1a861721fa8c59a6bf4383aea017ffa067"/><section>
+    <title>GetValue()</title>
+<indexterm><primary>GetValue</primary><secondary>CeLishp.Interpreter.IInputValue</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.IInputValue</primary><secondary>GetValue</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.IInputValue.GetValue ( )</computeroutput></para></section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+CeLishp/Interpreter/<link linkend="_IInputValue_8cs">IInputValue.cs</link></section>
+</section>

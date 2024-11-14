@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction" xml:lang="en-US">
+<title>CeLishp.Interpreter.Implementation.NarySubtraction Class Reference</title>
+<indexterm><primary>CeLishp.Interpreter.Implementation.NarySubtraction</primary></indexterm>
+<para>
+
+<para>Subtraction function taking two or more arguments. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.Implementation.NarySubtraction:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.Implementation.NarySubtraction:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1a4f04a3310d76937664da8bdec63356b2">Run</link> (object[] input)</para>
+
+<para>Run the interpretable over the given inputs. </para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1adc676cf298093bd5cb744f1e97d47f37">RunNary</link> (object[] inputs)</para>
+
+<para>Run the subtraction function on the given arguments. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">CeLishp.Interpreter.INaryFunction</link>Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link><section>
+<title>Detailed Description</title>
+
+<para>Subtraction function taking two or more arguments. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1a4f04a3310d76937664da8bdec63356b2"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>CeLishp.Interpreter.Implementation.NarySubtraction</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.NarySubtraction</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.Implementation.NarySubtraction.Run (object[] input)</computeroutput></para><para>
+
+<para>Run the interpretable over the given inputs. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input</entry><entry>
+<para>The inputs to the interpretable. Can be null.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The result of the operation</para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">CeLishp.Interpreter.IInterpretable</link>.</para>
+</section>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1adc676cf298093bd5cb744f1e97d47f37"/><section>
+    <title>RunNary()</title>
+<indexterm><primary>RunNary</primary><secondary>CeLishp.Interpreter.Implementation.NarySubtraction</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.NarySubtraction</primary><secondary>RunNary</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.Implementation.NarySubtraction.RunNary (object[] inputs)</computeroutput></para><para>
+
+<para>Run the subtraction function on the given arguments. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>inputs</entry><entry>
+<para>At least two float or int parameters. All arguments after the first are subtracted from the first.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>float of all following arguments subtracted from the first.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Throws if any arguments are non-float and non-int or if there is less than two provided.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction_1acfa779ebadc2b4ea9d3acbb823fcdb42">CeLishp.Interpreter.INaryFunction</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Interpreter/Implementation/<link linkend="_NarySubtraction_8cs">NarySubtraction.cs</link></section>
+</section>

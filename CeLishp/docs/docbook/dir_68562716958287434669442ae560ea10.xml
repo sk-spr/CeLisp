@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_68562716958287434669442ae560ea10" xml:lang="en-US">
+<title>CeLishp/Parser Directory Reference</title>
+<indexterm><primary>CeLishp/Parser Directory Reference</primary></indexterm>
+Directory dependency graph for Parser:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_68562716958287434669442ae560ea10_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_b10c8b16f2b1b6e3f6ee3be6d38bddab">Implementation</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_ISyntaxProvider_8cs">ISyntaxProvider.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_SyntaxNode_8cs">SyntaxNode.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_SyntaxTree_8cs">SyntaxTree.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

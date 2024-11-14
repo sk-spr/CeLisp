@@ -2,12 +2,16 @@ using System;
 
 namespace CeLishp.Interpreter
 {
+    /// <summary>
+    /// Base interface for interpretable elements
+    /// </summary>
     public interface IInterpretable
     {
-        public object Run(IInterpretable input);
-    }
-    public interface IInterpretable<TO>
-    {
-        public TO Run<TI>(IInterpretable<TI> inputs);
+        /// <summary>
+        /// Run the interpretable over the given inputs
+        /// </summary>
+        /// <param name="input">The inputs to the interpretable. Can be null.</param>
+        /// <returns>The result of the operation</returns>
+        public object Run(object[] input);
     }
 }

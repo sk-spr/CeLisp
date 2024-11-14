@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_CeLishp_2docs_2README" xml:lang="en-US">
+<title>CeLishp: Extensible &amp; Modular scripting language</title>
+<indexterm><primary>CeLishp: Extensible &amp; Modular scripting language</primary></indexterm>
+
+<para><anchor xml:id="_md_CeLishp_2docs_2README_1autotoc_md0"/></para>
+
+<para><link linkend="_namespaceCeLishp">CeLishp</link> is a framework for implementing a (domain-specific) scripting language into a project.</para>
+<section xml:id="_md_CeLishp_2docs_2README_1autotoc_md1">
+<title>Background</title>
+<para>Have you ever found yourself implementing yet another simple scripting language for a project, when you&apos;ve done that too many times already? This project aims to provide a reusable framework for simply adding such a language, where you only need to replace the components you need, and provide a value and function inventory.</para>
+</section>
+<section xml:id="_md_CeLishp_2docs_2README_1autotoc_md2">
+<title>Usage</title>
+<para><link linkend="_namespaceCeLishp">CeLishp</link> provides a set of interfaces that can/must be implemented in order to construct a scripting language. All functions and values derive from <emphasis>IInterpretable</emphasis>, where input values derive from <emphasis>IInputValue</emphasis> and functions from <emphasis>INaryFunction</emphasis>.</para>
+<section xml:id="_md_CeLishp_2docs_2README_1autotoc_md3">
+<title>Quick Start</title>
+<para>To get started, the types provided in <emphasis><link linkend="_namespaceCeLishp_1_1Interpreter_1_1Implementation">CeLishp.Interpreter.Implementation</link></emphasis> for values and functions as well as the Syntax Provider <emphasis><link linkend="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax">CeLishp.Parser.Implementation.SimpleLispSyntax</link></emphasis> can be used. A minimal program using these could look like this:</para>
+
+<para><literallayout><computeroutput>using&#32;CeLishp.Interpreter;
+using&#32;CeLishp.Interpreter.Implementation;
+using&#32;CeLishp.Parser;
+using&#32;CeLishp.Parser.Implementation;
+
+//&#32;function&#32;inventory&#32;must&#32;be&#32;provided,&#32;in&#32;this&#32;case&#32;there&#32;are&#32;only&#32;two.
+var&#32;functionInventory&#32;=&#32;new&#32;Dictionary&lt;string,&#32;INaryFunction&gt;()
+{
+&#32;&#32;&#32;&#32;{&#32;&quot;add&quot;,&#32;new&#32;NaryAddition()&#32;},&#32;//&#32;NaryAddition&#32;is&#32;assigned&#32;to&#32;the&#32;keyword&#32;&quot;add&quot;
+&#32;&#32;&#32;&#32;{&#32;&quot;sub&quot;,&#32;new&#32;NarySubtraction()&#32;}&#32;//&#32;NarySubtraction&#32;is&#32;assigned&#32;to&#32;the&#32;keyword&#32;&quot;sub&quot;
+};
+
+//&#32;value&#32;inventory&#32;is&#32;the&#32;possible&#32;value&#32;keywords
+var&#32;valueInventory&#32;=&#32;new&#32;Dictionary&lt;string,&#32;IInputValue&gt;()
+{
+&#32;&#32;&#32;&#32;{&#32;&quot;seven&quot;,&#32;new&#32;Constant&lt;float&gt;(7f)&#32;},&#32;//&#32;We&#32;define&#32;&quot;seven&quot;&#32;as&#32;meaning&#32;a&#32;constant&#32;value&#32;of&#32;7
+};
+
+//&#32;SimpleLispSyntax&#32;is&#32;our&#32;SyntaxProvider,&#32;it&#32;provides&#32;a&#32;very&#32;minimal&#32;Lisp-like&#32;syntax&#32;with&#32;support&#32;for&#32;numeric&#32;literals
+ISyntaxProvider&#32;provider&#32;=&#32;new&#32;SimpleLispSyntax();
+Console.Write(&quot;Formula:&#32;&quot;);
+
+//&#32;get&#32;source&#32;code&#32;as&#32;string,&#32;e.g.&#32;from&#32;stdin
+var&#32;sourceCode&#32;=&#32;Console.ReadLine();
+
+//&#32;generate&#32;a&#32;syntax&#32;tree&#32;from&#32;the&#32;input,&#32;as&#32;long&#32;as&#32;it&#32;is&#32;not&#32;null
+var&#32;synTree&#32;=&#32;provider.GenerateTree(sourceCode!);
+
+//&#32;parse&#32;the&#32;syntax&#32;tree&#32;into&#32;an&#32;interpretable&#32;form&#32;using&#32;our&#32;function&#32;and&#32;value&#32;inventory
+var&#32;exTree&#32;=&#32;provider.ParseTree(synTree,&#32;functionInventory,&#32;valueInventory);
+
+//&#32;an&#32;Interpreter&#32;is&#32;needed&#32;to&#32;run&#32;our&#32;interpretable&#32;tree
+var&#32;interpreter&#32;=&#32;new&#32;Interpreter(exTree);
+
+//&#32;we&#32;let&#32;our&#32;interpreter&#32;run&#32;the&#32;formula&#32;once,&#32;specifying&#32;the&#32;output&#32;type&#32;as&#32;a&#32;float
+Console.WriteLine($&quot;Result&#32;of&#32;our&#32;formula&#32;=&#32;{interpreter.RunTree&lt;float&gt;()}&quot;);
+</computeroutput></literallayout> This program could, for example, take the input <computeroutput>(add (sub seven 3.2) 4.3)</computeroutput> and produce the output value 9.1</para>
+</section>
+<section xml:id="_md_CeLishp_2docs_2README_1autotoc_md4">
+<title>Custom values</title>
+<para>In most, if not all cases, you&apos;d want to get some kind of value to use in your calculations. This can be done by implementing <emphasis>IInputValue</emphasis>, and adding this to our valueInventory. For example, if we want to add random numbers, we would create a new class as follows: <literallayout><computeroutput>using&#32;CeLishp.Interpreter;
+
+public&#32;class&#32;RandomNumber&#32;:&#32;IInputValue
+{
+&#32;&#32;&#32;&#32;public&#32;object&#32;Run(IInterpretable&#32;input)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;NotImplementedException();
+&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;//&#32;GetValue&#32;in&#32;our&#32;case&#32;simply&#32;returns&#32;a&#32;random&#32;float&#32;between&#32;0f&#32;and&#32;1f
+&#32;&#32;&#32;&#32;public&#32;object&#32;GetValue()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;var&#32;random&#32;=&#32;new&#32;Random();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;random.NextSingle();
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para>Then, we add this along with a keyword to our valueInventory: <literallayout><computeroutput>var&#32;valueInventory&#32;=&#32;new&#32;Dictionary&lt;string,&#32;IInputValue&gt;()
+{
+&#32;&#32;&#32;&#32;{&#32;&quot;rand&quot;,&#32;new&#32;RandomNumber()&#32;},
+};
+</computeroutput></literallayout> Then, we proceed as shown above. Now, whenever &quot;rand&quot; appears as a keyword in our formula, a random number is substituted at runtime.</para>
+</section>
+<section xml:id="_md_CeLishp_2docs_2README_1autotoc_md5">
+<title>Custom functions</title>
+<para>Custom functions derive from <emphasis>INaryFunction</emphasis>. If we want to add e.g. a conditional value selector, we would add the following class: <literallayout><computeroutput>using&#32;CeLishp.Interpreter;
+
+public&#32;class&#32;Conditional&#32;:&#32;INaryFunction
+{
+&#32;&#32;&#32;&#32;public&#32;object&#32;Run(object[]&#32;input)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;NotImplementedException();
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;object&#32;RunNary(object[]&#32;inputs)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(inputs&#32;==&#32;null&#32;||&#32;inputs.Length&#32;!=&#32;3)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;ArgumentException(&quot;Conditional&#32;must&#32;have&#32;exactly&#32;three&#32;inputs&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(inputs[0]&#32;is&#32;not&#32;bool&#32;b)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;throw&#32;new&#32;ArgumentException(&quot;Conditional&#32;must&#32;have&#32;a&#32;boolean&#32;as&#32;first&#32;argument!&quot;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(b)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;inputs[0];
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;inputs[1];
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout> We then simply add this to our functionInventory: <literallayout><computeroutput>var&#32;functionInventory&#32;=&#32;new&#32;Dictionary&lt;string,&#32;INaryFunction&gt;()
+{
+&#32;&#32;&#32;&#32;{&#32;&quot;add&quot;,&#32;new&#32;NaryAddition()&#32;},
+&#32;&#32;&#32;&#32;{&#32;&quot;sub&quot;,&#32;new&#32;NarySubtraction()&#32;},
+&#32;&#32;&#32;&#32;{&#32;&quot;if&quot;,&#32;new&#32;Conditional()&#32;},
+};
+</computeroutput></literallayout> Now, our source code can contain conditionals.</para>
+</section>
+<section xml:id="_md_CeLishp_2docs_2README_1autotoc_md6">
+<title>Custom Syntax</title>
+<para>To implement a custom syntax, we must implement <emphasis>ISyntaxProvider</emphasis>. </para>
+</section>
+</section>
+</section>

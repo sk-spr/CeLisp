@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_219d7bbbe22096e62508c2caf45d2de4" xml:lang="en-US">
+<title>CeLishp/docs Directory Reference</title>
+<indexterm><primary>CeLishp/docs Directory Reference</primary></indexterm>
+Directory dependency graph for docs:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_219d7bbbe22096e62508c2caf45d2de4_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>

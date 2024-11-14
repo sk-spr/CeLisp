@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_INaryFunction_8cs" xml:lang="en-US">
+<title>CeLishp/Interpreter/INaryFunction.cs File Reference</title>
+<indexterm><primary>CeLishp/Interpreter/INaryFunction.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">CeLishp.Interpreter.INaryFunction</link></para>
+
+<para><link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> that provides a function taking one or more inputs. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp">CeLishp</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp_1_1Interpreter">CeLishp.Interpreter</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

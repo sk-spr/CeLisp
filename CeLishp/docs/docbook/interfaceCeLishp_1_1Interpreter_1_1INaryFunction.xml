@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction" xml:lang="en-US">
+<title>CeLishp.Interpreter.INaryFunction Interface Reference</title>
+<indexterm><primary>CeLishp.Interpreter.INaryFunction</primary></indexterm>
+<para>
+
+<para><link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> that provides a function taking one or more inputs. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.INaryFunction:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interfaceCeLishp_1_1Interpreter_1_1INaryFunction__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.INaryFunction:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interfaceCeLishp_1_1Interpreter_1_1INaryFunction__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>object <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction_1acfa779ebadc2b4ea9d3acbb823fcdb42">RunNary</link> (object[] inputs)</para>
+
+<para>Run the function and return the result. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link>        <itemizedlist>
+            <listitem><para>object <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">Run</link> (object[] input)</para>
+
+<para>Run the interpretable over the given inputs. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> that provides a function taking one or more inputs. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction_1acfa779ebadc2b4ea9d3acbb823fcdb42"/><section>
+    <title>RunNary()</title>
+<indexterm><primary>RunNary</primary><secondary>CeLishp.Interpreter.INaryFunction</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.INaryFunction</primary><secondary>RunNary</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.INaryFunction.RunNary (object[] inputs)</computeroutput></para><para>
+
+<para>Run the function and return the result. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>inputs</entry><entry>
+<para>The input values to be operated on</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The result of the given function over the given inputs.</para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a2db07d54a87a2664396e1ef80aea77c4">CeLishp.Interpreter.Implementation.NaryAddition</link>, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1adc676cf298093bd5cb744f1e97d47f37">CeLishp.Interpreter.Implementation.NarySubtraction</link>, and <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a32ee3aa46feb2699cb53a55aeb19c782">CeLishp.Interpreter.Implementation.UnaryTrig</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+CeLishp/Interpreter/<link linkend="_INaryFunction_8cs">INaryFunction.cs</link></section>
+</section>

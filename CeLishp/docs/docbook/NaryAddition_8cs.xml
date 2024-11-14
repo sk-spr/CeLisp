@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_NaryAddition_8cs" xml:lang="en-US">
+<title>CeLishp/Interpreter/Implementation/NaryAddition.cs File Reference</title>
+<indexterm><primary>CeLishp/Interpreter/Implementation/NaryAddition.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition">CeLishp.Interpreter.Implementation.NaryAddition</link></para>
+
+<para>Addition function taking a variable number of inputs. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp">CeLishp</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp_1_1Interpreter">CeLishp.Interpreter</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp_1_1Interpreter_1_1Implementation">CeLishp.Interpreter.Implementation</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

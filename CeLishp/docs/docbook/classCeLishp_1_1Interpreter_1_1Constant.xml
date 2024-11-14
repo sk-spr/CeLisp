@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Interpreter_1_1Constant" xml:lang="en-US">
+<title>CeLishp.Interpreter.Constant&lt; T &gt; Class Template Reference</title>
+<indexterm><primary>CeLishp.Interpreter.Constant&lt; T &gt;</primary></indexterm>
+Inheritance diagram for CeLishp.Interpreter.Constant&lt; T &gt;:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Constant__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.Constant&lt; T &gt;:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Constant__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classCeLishp_1_1Interpreter_1_1Constant_1a22a1eb9291f6f3ee9060784a7a415cb8">Constant</link> (T val)</para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Constant_1a49b3094dc8a495f1c825e601ab90bd24">Run</link> (<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> input)</para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Constant_1a5e48cd58e11f5536ed73ee58a3486131">GetValue</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">CeLishp.Interpreter.IInputValue&lt; T &gt;</link>Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable&lt; TO &gt;</link>        <itemizedlist>
+            <listitem><para>TO <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1abe4c4f7e091a61272301c879a32015c2">Run&lt; TI &gt;</link> (<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link>&lt; TI &gt; inputs)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Constant_1a22a1eb9291f6f3ee9060784a7a415cb8"/><section>
+    <title>Constant()</title>
+<indexterm><primary>Constant</primary><secondary>CeLishp.Interpreter.Constant&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Constant&lt; T &gt;</primary><secondary>Constant</secondary></indexterm>
+<para><computeroutput><link linkend="_classCeLishp_1_1Interpreter_1_1Constant">CeLishp.Interpreter.Constant</link>&lt; T &gt;.<link linkend="_classCeLishp_1_1Interpreter_1_1Constant">Constant</link> (T val)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Constant_1a5e48cd58e11f5536ed73ee58a3486131"/><section>
+    <title>GetValue()</title>
+<indexterm><primary>GetValue</primary><secondary>CeLishp.Interpreter.Constant&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Constant&lt; T &gt;</primary><secondary>GetValue</secondary></indexterm>
+<para><computeroutput>object <link linkend="_classCeLishp_1_1Interpreter_1_1Constant">CeLishp.Interpreter.Constant</link>&lt; T &gt;.GetValue ( )</computeroutput></para><para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue_1a294ad3d87af0cd188823bbe7a4738b61">CeLishp.Interpreter.IInputValue&lt; T &gt;</link>.</para>
+</section>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Constant_1a49b3094dc8a495f1c825e601ab90bd24"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>CeLishp.Interpreter.Constant&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Constant&lt; T &gt;</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>object <link linkend="_classCeLishp_1_1Interpreter_1_1Constant">CeLishp.Interpreter.Constant</link>&lt; T &gt;.Run (<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> input)</computeroutput></para><para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1ac67341c3392fa0328039e30240fd63c9">CeLishp.Interpreter.IInterpretable&lt; TO &gt;</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Interpreter/<link linkend="_Constant_8cs">Constant.cs</link></section>
+</section>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_7bbe85e1ad052cc3d30632ed12853d56" xml:lang="en-US">
+<title>CeLishp/obj/Debug/net9.0 Directory Reference</title>
+<indexterm><primary>CeLishp/obj/Debug/net9.0 Directory Reference</primary></indexterm>
+Directory dependency graph for net9.0:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_7bbe85e1ad052cc3d30632ed12853d56_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__8NETCoreApp_00Version_0av9_80_8AssemblyAttributes_8cs">.NETCoreApp,Version=v9.0.AssemblyAttributes.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_net9_80_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_net9_80_2CeLishp_8GlobalUsings_8g_8cs">CeLishp.GlobalUsings.g.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

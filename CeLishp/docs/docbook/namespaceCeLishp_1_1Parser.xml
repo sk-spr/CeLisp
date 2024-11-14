@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceCeLishp_1_1Parser" xml:lang="en-US">
+<title>CeLishp.Parser Namespace Reference</title>
+<indexterm><primary>CeLishp.Parser</primary></indexterm>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp_1_1Parser_1_1Implementation">Implementation</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider">ISyntaxProvider</link></para>
+
+<para>Provides syntax parsing functionality - a concrete implementation defines the syntactic layout of the language. </para>
+</listitem>
+            <listitem><para>struct <link linkend="_structCeLishp_1_1Parser_1_1SyntaxNode">SyntaxNode</link></para>
+
+<para>A node in a syntax tree: Contains a function/keyword/literal and an optional list of child nodes. </para>
+</listitem>
+            <listitem><para>class <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link></para>
+
+<para>Syntax tree representing a parsed formula. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -35,7 +35,7 @@ namespace CeLishp.Interpreter
                 return val.GetValue();
             }
 
-            return startNode.Content.Run(startNode.Children![0].Content);
+            return startNode.Content.Run(startNode.Children!.Select(x => x.Content).ToArray<object>());
         }
     }
 }

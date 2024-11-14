@@ -1,0 +1,5 @@
+<map id="CeLishp.Parser.ISyntaxProvider" name="CeLishp.Parser.ISyntaxProvider">
+<area shape="rect" id="Node000001" title="Provides syntax parsing functionality &#45; a concrete implementation defines the syntactic layout of the..." alt="" coords="5,5,214,31"/>
+<area shape="rect" id="Node000002" href="$classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax.html" title="One possible implementation of a ISyntaxProvider providing a simple lisp&#45;like syntax." alt="" coords="5,79,214,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,46,112,79,107,79,107,46"/>
+</map>

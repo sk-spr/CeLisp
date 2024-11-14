@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">CeLishp.Interpreter.IInputValue</link>
+<para>Input value that can be inserted in a tree - provides a value </para>
+<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link>
+<para>Base interface for interpretable elements </para>
+<link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">CeLishp.Interpreter.INaryFunction</link>
+<para><link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> that provides a function taking one or more inputs </para>
+<link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">CeLishp.Interpreter.InterpretableNode</link>
+<para>Struct representing a node in an <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree">InterpretableTree</link> </para>
+<link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree">CeLishp.Interpreter.InterpretableTree</link>
+<para>Represents a tree of <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> </para>
+<link linkend="_classCeLishp_1_1Interpreter_1_1Interpreter">CeLishp.Interpreter.Interpreter</link><link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider">CeLishp.Parser.ISyntaxProvider</link>
+<para>Provides syntax parsing functionality - a concrete implementation defines the syntactic layout of the language </para>
+<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition">CeLishp.Interpreter.Implementation.NaryAddition</link>
+<para>Addition function taking a variable number of inputs </para>
+<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction">CeLishp.Interpreter.Implementation.NarySubtraction</link>
+<para>Subtraction function taking two or more arguments </para>
+<link linkend="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax">CeLishp.Parser.Implementation.SimpleLispSyntax</link>
+<para>One possible implementation of a <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider">ISyntaxProvider</link> providing a simple lisp-like syntax </para>
+<link linkend="_structCeLishp_1_1Parser_1_1SyntaxNode">CeLishp.Parser.SyntaxNode</link>
+<para>A node in a syntax tree: Contains a function/keyword/literal and an optional list of child nodes </para>
+<link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">CeLishp.Parser.SyntaxTree</link>
+<para>Syntax tree representing a parsed formula </para>
+<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig">CeLishp.Interpreter.Implementation.UnaryTrig</link>
+<para>Unary trigonometry functions </para>
+</section>

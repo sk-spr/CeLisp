@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structCeLishp_1_1Interpreter_1_1InterpretableTree" xml:lang="en-US">
+<title>CeLishp.Interpreter.InterpretableTree Struct Reference</title>
+<indexterm><primary>CeLishp.Interpreter.InterpretableTree</primary></indexterm>
+<para>
+
+<para>Represents a tree of <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> </para>
+ 
+</para>
+Collaboration diagram for CeLishp.Interpreter.InterpretableTree:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="structCeLishp_1_1Interpreter_1_1InterpretableTree__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree_1a66fe181b735ae4a213c3ff395e33254a">RootNode</link></para>
+
+<para>The absolute root <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> of the tree. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents a tree of <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> </para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_structCeLishp_1_1Interpreter_1_1InterpretableTree_1a66fe181b735ae4a213c3ff395e33254a"/><section>
+    <title>RootNode</title>
+<indexterm><primary>RootNode</primary><secondary>CeLishp.Interpreter.InterpretableTree</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.InterpretableTree</primary><secondary>RootNode</secondary></indexterm>
+<para><computeroutput><link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> CeLishp.Interpreter.InterpretableTree.RootNode</computeroutput></para><para>
+
+<para>The absolute root <link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableNode">InterpretableNode</link> of the tree. </para>
+</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+CeLishp/Interpreter/<link linkend="_InterpretableTree_8cs">InterpretableTree.cs</link></section>
+</section>

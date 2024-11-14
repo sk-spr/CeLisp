@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax" xml:lang="en-US">
+<title>CeLishp.Parser.Implementation.SimpleLispSyntax Class Reference</title>
+<indexterm><primary>CeLishp.Parser.Implementation.SimpleLispSyntax</primary></indexterm>
+<para>
+
+<para>One possible implementation of a <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider">ISyntaxProvider</link> providing a simple lisp-like syntax. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Parser.Implementation.SimpleLispSyntax:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Parser.Implementation.SimpleLispSyntax:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> <link linkend="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_1a578923142f343050082142f2acb54555">GenerateTree</link> (string source)</para>
+
+<para>Generate a <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> from the given lisp-like input string. </para>
+</listitem>
+            <listitem><para><link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree">InterpretableTree</link> <link linkend="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_1ad6a9846dc740567a6bc2c0af08d633de">ParseTree</link> (<link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> parsedSource, Dictionary&lt; string, <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link> &gt; naryInventory, Dictionary&lt; string, <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> &gt; valueInventory)</para>
+
+<para>
+<para>Parse a <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> and generate an InterpretableTree that can be run by an <link linkend="_namespaceCeLishp_1_1Interpreter">Interpreter</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>parsedSource</entry><entry>
+<para>The <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> to be converted</para>
+</entry>
+                            </row>
+                            <row>
+<entry>functionInventory</entry><entry>
+<para>A dictionary containing the function names and their corresponding INaryFunction</para>
+</entry>
+                            </row>
+                            <row>
+<entry>valueInventory</entry><entry>
+<para>A dictionary containing value names as they would appear in the <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> and their corresponding IInputValue</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>InterpretableTree that can be run</para>
+</formalpara>
+</para>
+ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider">CeLishp.Parser.ISyntaxProvider</link><section>
+<title>Detailed Description</title>
+
+<para>One possible implementation of a <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider">ISyntaxProvider</link> providing a simple lisp-like syntax. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_1a578923142f343050082142f2acb54555"/><section>
+    <title>GenerateTree()</title>
+<indexterm><primary>GenerateTree</primary><secondary>CeLishp.Parser.Implementation.SimpleLispSyntax</secondary></indexterm>
+<indexterm><primary>CeLishp.Parser.Implementation.SimpleLispSyntax</primary><secondary>GenerateTree</secondary></indexterm>
+<para><computeroutput><link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> CeLishp.Parser.Implementation.SimpleLispSyntax.GenerateTree (string source)</computeroutput></para><para>
+
+<para>Generate a <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> from the given lisp-like input string. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>source</entry><entry>
+<para>Source code to be parsed</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para><link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> of the parsed source code</para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider_1a401257e6ae8885250d936eb5dc782b9e">CeLishp.Parser.ISyntaxProvider</link>.</para>
+</section>
+<anchor xml:id="_classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_1ad6a9846dc740567a6bc2c0af08d633de"/><section>
+    <title>ParseTree()</title>
+<indexterm><primary>ParseTree</primary><secondary>CeLishp.Parser.Implementation.SimpleLispSyntax</secondary></indexterm>
+<indexterm><primary>CeLishp.Parser.Implementation.SimpleLispSyntax</primary><secondary>ParseTree</secondary></indexterm>
+<para><computeroutput><link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree">InterpretableTree</link> CeLishp.Parser.Implementation.SimpleLispSyntax.ParseTree (<link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> parsedSource, Dictionary&lt; string, <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link> &gt; naryInventory, Dictionary&lt; string, <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> &gt; valueInventory)</computeroutput></para><para>
+
+<para>
+<para>Parse a <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> and generate an InterpretableTree that can be run by an <link linkend="_namespaceCeLishp_1_1Interpreter">Interpreter</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>parsedSource</entry><entry>
+<para>The <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> to be converted</para>
+</entry>
+                            </row>
+                            <row>
+<entry>functionInventory</entry><entry>
+<para>A dictionary containing the function names and their corresponding INaryFunction</para>
+</entry>
+                            </row>
+                            <row>
+<entry>valueInventory</entry><entry>
+<para>A dictionary containing value names as they would appear in the <link linkend="_classCeLishp_1_1Parser_1_1SyntaxTree">SyntaxTree</link> and their corresponding IInputValue</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>InterpretableTree that can be run</para>
+</formalpara>
+</para>
+ </para>
+</para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxProvider_1a3654f43ed26bf7463e1607c3ded1c144">CeLishp.Parser.ISyntaxProvider</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Parser/Implementation/<link linkend="_SimpleLispSyntax_8cs">SimpleLispSyntax.cs</link></section>
+</section>

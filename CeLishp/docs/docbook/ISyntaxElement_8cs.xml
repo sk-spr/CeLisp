@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_ISyntaxElement_8cs" xml:lang="en-US">
+<title>CeLishp/Parser/ISyntaxElement.cs File Reference</title>
+<indexterm><primary>CeLishp/Parser/ISyntaxElement.cs</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>interface <link linkend="_interfaceCeLishp_1_1Parser_1_1ISyntaxElement">CeLishp.Parser.ISyntaxElement</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp">CeLishp</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespaceCeLishp_1_1Parser">CeLishp.Parser</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

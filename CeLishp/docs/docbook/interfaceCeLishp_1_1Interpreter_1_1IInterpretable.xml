@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable" xml:lang="en-US">
+<title>CeLishp.Interpreter.IInterpretable Interface Reference</title>
+<indexterm><primary>CeLishp.Interpreter.IInterpretable</primary></indexterm>
+<para>
+
+<para>Base interface for interpretable elements. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.IInterpretable:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interfaceCeLishp_1_1Interpreter_1_1IInterpretable__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>object <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">Run</link> (object[] input)</para>
+
+<para>Run the interpretable over the given inputs. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Base interface for interpretable elements. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>CeLishp.Interpreter.IInterpretable</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.IInterpretable</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.IInterpretable.Run (object[] input)</computeroutput></para><para>
+
+<para>Run the interpretable over the given inputs. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input</entry><entry>
+<para>The inputs to the interpretable. Can be null.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The result of the operation</para>
+</formalpara>
+</para>
+<para>
+Implemented in <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a3947f0bcda0f52dc89c675ef61222fc7">CeLishp.Interpreter.Implementation.NaryAddition</link>, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1a4f04a3310d76937664da8bdec63356b2">CeLishp.Interpreter.Implementation.NarySubtraction</link>, and <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a9808862a7401fecce393123799602b9e">CeLishp.Interpreter.Implementation.UnaryTrig</link>.</para>
+</section>
+<para>
+The documentation for this interface was generated from the following file:</para>
+CeLishp/Interpreter/<link linkend="_IInterpretable_8cs">IInterpretable.cs</link></section>
+</section>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_5e6c130f348d09b561bdce9c7a0b8b15" xml:lang="en-US">
+<title>CeLishp/obj Directory Reference</title>
+<indexterm><primary>CeLishp/obj Directory Reference</primary></indexterm>
+Directory dependency graph for obj:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_5e6c130f348d09b561bdce9c7a0b8b15_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_def6dd18564200a3525d2e2d86e3aea3">Debug</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

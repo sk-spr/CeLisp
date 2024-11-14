@@ -1,0 +1,11 @@
+<map id="CeLishp.Interpreter.INaryFunction" name="CeLishp.Interpreter.INaryFunction">
+<area shape="rect" id="Node000001" title="IInterpretable that provides a function taking one or more inputs." alt="" coords="151,71,319,111"/>
+<area shape="rect" id="Node000003" href="$classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition.html" title="Addition function taking a variable number of inputs." alt="" coords="367,5,596,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="328,64,401,44,403,49,330,69"/>
+<area shape="rect" id="Node000004" href="$classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction.html" title="Subtraction function taking two or more arguments." alt="" coords="367,71,596,111"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="335,88,367,88,367,94,335,94"/>
+<area shape="rect" id="Node000005" href="$classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig.html" title="Unary trigonometry functions." alt="" coords="367,136,596,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="330,113,403,133,401,138,328,118"/>
+<area shape="rect" id="Node000002" href="$interfaceCeLishp_1_1Interpreter_1_1IInterpretable.html" title="Base interface for interpretable elements." alt="" coords="5,78,103,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,88,150,88,150,94,118,94"/>
+</map>

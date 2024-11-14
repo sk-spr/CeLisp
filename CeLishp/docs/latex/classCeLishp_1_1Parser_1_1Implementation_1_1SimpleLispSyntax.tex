@@ -1,0 +1,108 @@
+\doxysection{Ce\+Lishp.\+Parser.\+Implementation.\+Simple\+Lisp\+Syntax Class Reference}
+\hypertarget{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax}{}\label{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax}\index{CeLishp.Parser.Implementation.SimpleLispSyntax@{CeLishp.Parser.Implementation.SimpleLispSyntax}}
+
+
+One possible implementation of a \doxylink{interfaceCeLishp_1_1Parser_1_1ISyntaxProvider}{ISyntax\+Provider} providing a simple lisp-\/like syntax.  
+
+
+
+
+Inheritance diagram for Ce\+Lishp.\+Parser.\+Implementation.\+Simple\+Lisp\+Syntax\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ce\+Lishp.\+Parser.\+Implementation.\+Simple\+Lisp\+Syntax\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree}} \mbox{\hyperlink{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_a578923142f343050082142f2acb54555}{Generate\+Tree}} (string source)
+\begin{DoxyCompactList}\small\item\em Generate a \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} from the given lisp-\/like input string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCeLishp_1_1Interpreter_1_1InterpretableTree}{Interpretable\+Tree}} \mbox{\hyperlink{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_ad6a9846dc740567a6bc2c0af08d633de}{Parse\+Tree}} (\mbox{\hyperlink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree}} parsed\+Source, Dictionary$<$ string, \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction}{INary\+Function}} $>$ nary\+Inventory, Dictionary$<$ string, \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1IInputValue}{IInput\+Value}} $>$ value\+Inventory)
+\begin{DoxyCompactList}\small\item\em Parse a \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} and generate an Interpretable\+Tree that can be run by an \doxylink{namespaceCeLishp_1_1Interpreter}{Interpreter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em parsed\+Source} & The \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} to be converted\\
+\hline
+{\em function\+Inventory} & A dictionary containing the function names and their corresponding INary\+Function\\
+\hline
+{\em value\+Inventory} & A dictionary containing value names as they would appear in the \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} and their corresponding IInput\+Value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpretable\+Tree that can be run
+\end{DoxyReturn}
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfaceCeLishp_1_1Parser_1_1ISyntaxProvider}{Ce\+Lishp.\+Parser.\+ISyntax\+Provider}}}
+
+
+\doxysubsection{Detailed Description}
+One possible implementation of a \doxylink{interfaceCeLishp_1_1Parser_1_1ISyntaxProvider}{ISyntax\+Provider} providing a simple lisp-\/like syntax. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_a578923142f343050082142f2acb54555}\index{CeLishp.Parser.Implementation.SimpleLispSyntax@{CeLishp.Parser.Implementation.SimpleLispSyntax}!GenerateTree@{GenerateTree}}
+\index{GenerateTree@{GenerateTree}!CeLishp.Parser.Implementation.SimpleLispSyntax@{CeLishp.Parser.Implementation.SimpleLispSyntax}}
+\doxysubsubsection{\texorpdfstring{GenerateTree()}{GenerateTree()}}
+{\footnotesize\ttfamily \label{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_a578923142f343050082142f2acb54555} 
+\mbox{\hyperlink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree}} Ce\+Lishp.\+Parser.\+Implementation.\+Simple\+Lisp\+Syntax.\+Generate\+Tree (\begin{DoxyParamCaption}\item[{string}]{source}{}\end{DoxyParamCaption})}
+
+
+
+Generate a \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} from the given lisp-\/like input string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source code to be parsed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} of the parsed source code
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceCeLishp_1_1Parser_1_1ISyntaxProvider_a401257e6ae8885250d936eb5dc782b9e}{Ce\+Lishp.\+Parser.\+ISyntax\+Provider}}.
+
+\Hypertarget{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_ad6a9846dc740567a6bc2c0af08d633de}\index{CeLishp.Parser.Implementation.SimpleLispSyntax@{CeLishp.Parser.Implementation.SimpleLispSyntax}!ParseTree@{ParseTree}}
+\index{ParseTree@{ParseTree}!CeLishp.Parser.Implementation.SimpleLispSyntax@{CeLishp.Parser.Implementation.SimpleLispSyntax}}
+\doxysubsubsection{\texorpdfstring{ParseTree()}{ParseTree()}}
+{\footnotesize\ttfamily \label{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax_ad6a9846dc740567a6bc2c0af08d633de} 
+\mbox{\hyperlink{structCeLishp_1_1Interpreter_1_1InterpretableTree}{Interpretable\+Tree}} Ce\+Lishp.\+Parser.\+Implementation.\+Simple\+Lisp\+Syntax.\+Parse\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree}}}]{parsed\+Source}{, }\item[{Dictionary$<$ string, \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction}{INary\+Function}} $>$}]{nary\+Inventory}{, }\item[{Dictionary$<$ string, \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1IInputValue}{IInput\+Value}} $>$}]{value\+Inventory}{}\end{DoxyParamCaption})}
+
+
+
+Parse a \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} and generate an Interpretable\+Tree that can be run by an \doxylink{namespaceCeLishp_1_1Interpreter}{Interpreter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em parsed\+Source} & The \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} to be converted\\
+\hline
+{\em function\+Inventory} & A dictionary containing the function names and their corresponding INary\+Function\\
+\hline
+{\em value\+Inventory} & A dictionary containing value names as they would appear in the \doxylink{classCeLishp_1_1Parser_1_1SyntaxTree}{Syntax\+Tree} and their corresponding IInput\+Value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Interpretable\+Tree that can be run
+\end{DoxyReturn}
+ 
+
+
+
+Implements \mbox{\hyperlink{interfaceCeLishp_1_1Parser_1_1ISyntaxProvider_a3654f43ed26bf7463e1607c3ded1c144}{Ce\+Lishp.\+Parser.\+ISyntax\+Provider}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Ce\+Lishp/\+Parser/\+Implementation/\mbox{\hyperlink{SimpleLispSyntax_8cs}{Simple\+Lisp\+Syntax.\+cs}}\end{DoxyCompactItemize}

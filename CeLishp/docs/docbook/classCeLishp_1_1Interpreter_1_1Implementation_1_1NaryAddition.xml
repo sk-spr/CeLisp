@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition" xml:lang="en-US">
+<title>CeLishp.Interpreter.Implementation.NaryAddition Class Reference</title>
+<indexterm><primary>CeLishp.Interpreter.Implementation.NaryAddition</primary></indexterm>
+<para>
+
+<para>Addition function taking a variable number of inputs. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.Implementation.NaryAddition:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.Implementation.NaryAddition:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a3947f0bcda0f52dc89c675ef61222fc7">Run</link> (object[] input)</para>
+
+<para>Run the function as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> </para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a2db07d54a87a2664396e1ef80aea77c4">RunNary</link> (object[] inputs)</para>
+
+<para>Run the addition function. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">CeLishp.Interpreter.INaryFunction</link>Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link><section>
+<title>Detailed Description</title>
+
+<para>Addition function taking a variable number of inputs. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a3947f0bcda0f52dc89c675ef61222fc7"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>CeLishp.Interpreter.Implementation.NaryAddition</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.NaryAddition</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.Implementation.NaryAddition.Run (object[] input)</computeroutput></para><para>
+
+<para>Run the function as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input</entry><entry>
+<para>Inputs to the addition function</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Nothing</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>NotImplementedException</entry><entry>
+<para>Throws since <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition">NaryAddition</link> expects to be run as a <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">CeLishp.Interpreter.IInterpretable</link>.</para>
+</section>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a2db07d54a87a2664396e1ef80aea77c4"/><section>
+    <title>RunNary()</title>
+<indexterm><primary>RunNary</primary><secondary>CeLishp.Interpreter.Implementation.NaryAddition</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.NaryAddition</primary><secondary>RunNary</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.Implementation.NaryAddition.RunNary (object[] inputs)</computeroutput></para><para>
+
+<para>Run the addition function. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>inputs</entry><entry>
+<para>Inputs to be summed, must be floats or ints</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Result as float</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>If any arguments are not float or int, the function throws.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction_1acfa779ebadc2b4ea9d3acbb823fcdb42">CeLishp.Interpreter.INaryFunction</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Interpreter/Implementation/<link linkend="_NaryAddition_8cs">NaryAddition.cs</link></section>
+</section>

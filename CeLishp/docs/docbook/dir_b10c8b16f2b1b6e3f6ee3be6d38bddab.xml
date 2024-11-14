@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_b10c8b16f2b1b6e3f6ee3be6d38bddab" xml:lang="en-US">
+<title>CeLishp/Parser/Implementation Directory Reference</title>
+<indexterm><primary>CeLishp/Parser/Implementation Directory Reference</primary></indexterm>
+Directory dependency graph for Implementation:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_b10c8b16f2b1b6e3f6ee3be6d38bddab_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_SimpleLispSyntax_8cs">SimpleLispSyntax.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

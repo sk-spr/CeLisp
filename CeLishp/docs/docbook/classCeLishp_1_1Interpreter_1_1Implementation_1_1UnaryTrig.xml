@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig" xml:lang="en-US">
+<title>CeLishp.Interpreter.Implementation.UnaryTrig Class Reference</title>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary></indexterm>
+<para>
+
+<para>Unary trigonometry functions. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.Implementation.UnaryTrig:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.Implementation.UnaryTrig:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fab">UnaryTrigFunction</link> { <?linebreak?><link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba6ca9e2d793f678aba7c1b19526592a46">Sine</link>
+, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba46ff06ae696616afdf3a695efd3db84c">Cosine</link>
+, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba541671cb1be09d76a84ba1a873ec3fc8">Tangent</link>
+, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba035015d7b926664944e4d5f816cac4dd">Arcsin</link>
+, <?linebreak?><link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fabaa3c76e37870a4cd3589ee54617ee2b2f">Arccos</link>
+, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba6066fd8e8b91eda09097c65c71b26128">Arctan</link>
+ }</para>
+
+<para>The supported operations. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a6f85a9c683b4036eba7d94861eaa6064">UnaryTrig</link> (<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fab">UnaryTrigFunction</link> func)</para>
+
+<para>Create a new <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig">UnaryTrig</link> <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link> of the given trigonometric function. </para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a9808862a7401fecce393123799602b9e">Run</link> (object[] input)</para>
+
+<para>Run the function as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link>. </para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a32ee3aa46feb2699cb53a55aeb19c782">RunNary</link> (object[] inputs)</para>
+
+<para>Run the function as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link> </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">CeLishp.Interpreter.INaryFunction</link>Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link><section>
+<title>Detailed Description</title>
+
+<para>Unary trigonometry functions. </para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fab"/><section>
+    <title>UnaryTrigFunction</title>
+<indexterm><primary>UnaryTrigFunction</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>UnaryTrigFunction</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fab">CeLishp.Interpreter.Implementation.UnaryTrig.UnaryTrigFunction</link></computeroutput></para><para>
+
+<para>The supported operations. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>Sine</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Sine</secondary></indexterm>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba6ca9e2d793f678aba7c1b19526592a46"/>Sine</entry><entry></entry></row><row><entry><indexterm><primary>Cosine</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Cosine</secondary></indexterm>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba46ff06ae696616afdf3a695efd3db84c"/>Cosine</entry><entry></entry></row><row><entry><indexterm><primary>Tangent</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Tangent</secondary></indexterm>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba541671cb1be09d76a84ba1a873ec3fc8"/>Tangent</entry><entry></entry></row><row><entry><indexterm><primary>Arcsin</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Arcsin</secondary></indexterm>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba035015d7b926664944e4d5f816cac4dd"/>Arcsin</entry><entry></entry></row><row><entry><indexterm><primary>Arccos</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Arccos</secondary></indexterm>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fabaa3c76e37870a4cd3589ee54617ee2b2f"/>Arccos</entry><entry></entry></row><row><entry><indexterm><primary>Arctan</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Arctan</secondary></indexterm>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09faba6066fd8e8b91eda09097c65c71b26128"/>Arctan</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a6f85a9c683b4036eba7d94861eaa6064"/><section>
+    <title>UnaryTrig()</title>
+<indexterm><primary>UnaryTrig</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>UnaryTrig</secondary></indexterm>
+<para><computeroutput>CeLishp.Interpreter.Implementation.UnaryTrig.UnaryTrig (<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a2e48045488f40908e123c30496d09fab">UnaryTrigFunction</link> func)</computeroutput></para><para>
+
+<para>Create a new <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig">UnaryTrig</link> <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link> of the given trigonometric function. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>func</entry><entry>
+<para>The function which should be performed when running</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a9808862a7401fecce393123799602b9e"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.Implementation.UnaryTrig.Run (object[] input)</computeroutput></para><para>
+
+<para>Run the function as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input</entry><entry>
+<para>Input values</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Nothing</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>NotImplementedException</entry><entry>
+<para>Always throws since <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig">UnaryTrig</link> expects to be run as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">CeLishp.Interpreter.IInterpretable</link>.</para>
+</section>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a32ee3aa46feb2699cb53a55aeb19c782"/><section>
+    <title>RunNary()</title>
+<indexterm><primary>RunNary</primary><secondary>CeLishp.Interpreter.Implementation.UnaryTrig</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.UnaryTrig</primary><secondary>RunNary</secondary></indexterm>
+<para><computeroutput>object CeLishp.Interpreter.Implementation.UnaryTrig.RunNary (object[] inputs)</computeroutput></para><para>
+
+<para>Run the function as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction">INaryFunction</link> </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>inputs</entry><entry>
+<para>Input value. Must be exactly one float, in radians.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The result of the chosen trigonometric function on the input value.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ArgumentException</entry><entry>
+<para>Throws if there is not exactly one argument of type float provided.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1INaryFunction_1acfa779ebadc2b4ea9d3acbb823fcdb42">CeLishp.Interpreter.INaryFunction</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Interpreter/Implementation/<link linkend="_UnaryTrig_8cs">UnaryTrig.cs</link></section>
+</section>

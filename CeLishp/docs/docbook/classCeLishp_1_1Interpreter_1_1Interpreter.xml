@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Interpreter_1_1Interpreter" xml:lang="en-US">
+<title>CeLishp.Interpreter.Interpreter Class Reference</title>
+<indexterm><primary>CeLishp.Interpreter.Interpreter</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classCeLishp_1_1Interpreter_1_1Interpreter_1a7d54870717cad662b520524a7158c94d">Interpreter</link> (<link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree">InterpretableTree</link> tree)</para>
+</listitem>
+            <listitem><para>T <link linkend="_classCeLishp_1_1Interpreter_1_1Interpreter_1aaace3e11c9e5397567a093bf9ec157eb">RunTree&lt; T &gt;</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Interpreter_1a7d54870717cad662b520524a7158c94d"/><section>
+    <title>Interpreter()</title>
+<indexterm><primary>Interpreter</primary><secondary>CeLishp.Interpreter.Interpreter</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Interpreter</primary><secondary>Interpreter</secondary></indexterm>
+<para><computeroutput>CeLishp.Interpreter.Interpreter.Interpreter (<link linkend="_structCeLishp_1_1Interpreter_1_1InterpretableTree">InterpretableTree</link> tree)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Interpreter_1aaace3e11c9e5397567a093bf9ec157eb"/><section>
+    <title>RunTree&lt; T &gt;()</title>
+<indexterm><primary>RunTree&lt; T &gt;</primary><secondary>CeLishp.Interpreter.Interpreter</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Interpreter</primary><secondary>RunTree&lt; T &gt;</secondary></indexterm>
+<para><computeroutput>T CeLishp.Interpreter.Interpreter.RunTree&lt; T &gt; ( )</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Interpreter/<link linkend="_Interpreter_8cs">Interpreter.cs</link></section>
+</section>

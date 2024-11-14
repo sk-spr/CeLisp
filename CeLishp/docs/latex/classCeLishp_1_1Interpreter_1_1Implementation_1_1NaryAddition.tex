@@ -1,0 +1,99 @@
+\doxysection{Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Addition Class Reference}
+\hypertarget{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition}{}\label{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition}\index{CeLishp.Interpreter.Implementation.NaryAddition@{CeLishp.Interpreter.Implementation.NaryAddition}}
+
+
+Addition function taking a variable number of inputs.  
+
+
+
+
+Inheritance diagram for Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Addition\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Addition\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+object \mbox{\hyperlink{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_a3947f0bcda0f52dc89c675ef61222fc7}{Run}} (object\mbox{[}$\,$\mbox{]} input)
+\begin{DoxyCompactList}\small\item\em Run the function as an \doxylink{interfaceCeLishp_1_1Interpreter_1_1IInterpretable}{IInterpretable} \end{DoxyCompactList}\item 
+object \mbox{\hyperlink{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_a2db07d54a87a2664396e1ef80aea77c4}{Run\+Nary}} (object\mbox{[}$\,$\mbox{]} inputs)
+\begin{DoxyCompactList}\small\item\em Run the addition function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction}{Ce\+Lishp.\+Interpreter.\+INary\+Function}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1IInterpretable}{Ce\+Lishp.\+Interpreter.\+IInterpretable}}}
+
+
+\doxysubsection{Detailed Description}
+Addition function taking a variable number of inputs. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_a3947f0bcda0f52dc89c675ef61222fc7}\index{CeLishp.Interpreter.Implementation.NaryAddition@{CeLishp.Interpreter.Implementation.NaryAddition}!Run@{Run}}
+\index{Run@{Run}!CeLishp.Interpreter.Implementation.NaryAddition@{CeLishp.Interpreter.Implementation.NaryAddition}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_a3947f0bcda0f52dc89c675ef61222fc7} 
+object Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Addition.\+Run (\begin{DoxyParamCaption}\item[{object\mbox{[}$\,$\mbox{]}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Run the function as an \doxylink{interfaceCeLishp_1_1Interpreter_1_1IInterpretable}{IInterpretable} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Inputs to the addition function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Implemented\+Exception} & Throws since \doxylink{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition}{Nary\+Addition} expects to be run as a \doxylink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction}{INary\+Function}\\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1IInterpretable_afe9f84344512801486a8a2156b971e4e}{Ce\+Lishp.\+Interpreter.\+IInterpretable}}.
+
+\Hypertarget{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_a2db07d54a87a2664396e1ef80aea77c4}\index{CeLishp.Interpreter.Implementation.NaryAddition@{CeLishp.Interpreter.Implementation.NaryAddition}!RunNary@{RunNary}}
+\index{RunNary@{RunNary}!CeLishp.Interpreter.Implementation.NaryAddition@{CeLishp.Interpreter.Implementation.NaryAddition}}
+\doxysubsubsection{\texorpdfstring{RunNary()}{RunNary()}}
+{\footnotesize\ttfamily \label{classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_a2db07d54a87a2664396e1ef80aea77c4} 
+object Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Addition.\+Run\+Nary (\begin{DoxyParamCaption}\item[{object\mbox{[}$\,$\mbox{]}}]{inputs}{}\end{DoxyParamCaption})}
+
+
+
+Run the addition function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & Inputs to be summed, must be floats or ints\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result as float
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & If any arguments are not float or int, the function throws.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction_acfa779ebadc2b4ea9d3acbb823fcdb42}{Ce\+Lishp.\+Interpreter.\+INary\+Function}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Ce\+Lishp/\+Interpreter/\+Implementation/\mbox{\hyperlink{NaryAddition_8cs}{Nary\+Addition.\+cs}}\end{DoxyCompactItemize}

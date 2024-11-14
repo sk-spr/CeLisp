@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_def6dd18564200a3525d2e2d86e3aea3" xml:lang="en-US">
+<title>CeLishp/obj/Debug Directory Reference</title>
+<indexterm><primary>CeLishp/obj/Debug Directory Reference</primary></indexterm>
+Directory dependency graph for Debug:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_def6dd18564200a3525d2e2d86e3aea3_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_e620d67232f9eb5eca448d9eb3dec81d">net8.0</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_7bbe85e1ad052cc3d30632ed12853d56">net9.0</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__8NETFramework_00Version_0av4_88_8AssemblyAttributes_8cs">.NETFramework,Version=v4.8.AssemblyAttributes.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

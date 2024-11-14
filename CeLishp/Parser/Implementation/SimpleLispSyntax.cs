@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using CeLishp.Interpreter;
+using CeLishp.Interpreter.Implementation;
 
 namespace CeLishp.Parser.Implementation
 {
+    /// <summary>
+    /// One possible implementation of a <see cref="ISyntaxProvider"/> providing a simple lisp-like syntax
+    /// </summary>
     public class SimpleLispSyntax : ISyntaxProvider
     {
+        /// <summary>
+        /// Generate a <see cref="SyntaxTree"/> from the given lisp-like input string
+        /// </summary>
+        /// <param name="source">Source code to be parsed</param>
+        /// <returns><see cref="SyntaxTree"/> of the parsed source code</returns>
         public SyntaxTree GenerateTree(string source)
         {
             var tree = new SyntaxTree();
@@ -15,6 +24,8 @@ namespace CeLishp.Parser.Implementation
             return tree;
         }
 
+
+        /// <inheritdoc />
         public InterpretableTree ParseTree(SyntaxTree parsedSource, Dictionary<string, INaryFunction> naryInventory,
             Dictionary<string, IInputValue> valueInventory)
         {
@@ -50,7 +61,6 @@ namespace CeLishp.Parser.Implementation
 
         private SyntaxNode GenerateSubtree(string source)
         {
-            Console.WriteLine($"Got source {source}");
             var trimmed = source.Trim();
             if (!trimmed.StartsWith("(") || !trimmed.EndsWith(")"))
                 throw new ArgumentException($"Source {source} not start and end with (/)");
@@ -58,14 +68,11 @@ namespace CeLishp.Parser.Implementation
             
             
             var childNodes = new List<SyntaxNode>();
-            Console.WriteLine($"Trimmed = {trimmed}");
             (string before, string inner, string remainder) res = MatchParenContents(trimmed);
-            Console.WriteLine($"Gives {res}");
             var exprs = res.before.Split(' ');
             res.remainder = trimmed.Substring(exprs[0].Length);
             while (res.remainder != "")
             {
-                Console.WriteLine(res);
                 var keywords = res.before.Split(' ').ToList();
                 keywords.RemoveAll(s => s.All(c => c == ' '));
                 keywords.RemoveAt(0);

@@ -1,0 +1,94 @@
+\doxysection{Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Subtraction Class Reference}
+\hypertarget{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction}{}\label{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction}\index{CeLishp.Interpreter.Implementation.NarySubtraction@{CeLishp.Interpreter.Implementation.NarySubtraction}}
+
+
+Subtraction function taking two or more arguments.  
+
+
+
+
+Inheritance diagram for Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Subtraction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Subtraction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+object \mbox{\hyperlink{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_a4f04a3310d76937664da8bdec63356b2}{Run}} (object\mbox{[}$\,$\mbox{]} input)
+\begin{DoxyCompactList}\small\item\em Run the interpretable over the given inputs. \end{DoxyCompactList}\item 
+object \mbox{\hyperlink{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_adc676cf298093bd5cb744f1e97d47f37}{Run\+Nary}} (object\mbox{[}$\,$\mbox{]} inputs)
+\begin{DoxyCompactList}\small\item\em Run the subtraction function on the given arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction}{Ce\+Lishp.\+Interpreter.\+INary\+Function}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1IInterpretable}{Ce\+Lishp.\+Interpreter.\+IInterpretable}}}
+
+
+\doxysubsection{Detailed Description}
+Subtraction function taking two or more arguments. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_a4f04a3310d76937664da8bdec63356b2}\index{CeLishp.Interpreter.Implementation.NarySubtraction@{CeLishp.Interpreter.Implementation.NarySubtraction}!Run@{Run}}
+\index{Run@{Run}!CeLishp.Interpreter.Implementation.NarySubtraction@{CeLishp.Interpreter.Implementation.NarySubtraction}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily \label{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_a4f04a3310d76937664da8bdec63356b2} 
+object Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Subtraction.\+Run (\begin{DoxyParamCaption}\item[{object\mbox{[}$\,$\mbox{]}}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Run the interpretable over the given inputs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The inputs to the interpretable. Can be null.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of the operation
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1IInterpretable_afe9f84344512801486a8a2156b971e4e}{Ce\+Lishp.\+Interpreter.\+IInterpretable}}.
+
+\Hypertarget{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_adc676cf298093bd5cb744f1e97d47f37}\index{CeLishp.Interpreter.Implementation.NarySubtraction@{CeLishp.Interpreter.Implementation.NarySubtraction}!RunNary@{RunNary}}
+\index{RunNary@{RunNary}!CeLishp.Interpreter.Implementation.NarySubtraction@{CeLishp.Interpreter.Implementation.NarySubtraction}}
+\doxysubsubsection{\texorpdfstring{RunNary()}{RunNary()}}
+{\footnotesize\ttfamily \label{classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_adc676cf298093bd5cb744f1e97d47f37} 
+object Ce\+Lishp.\+Interpreter.\+Implementation.\+Nary\+Subtraction.\+Run\+Nary (\begin{DoxyParamCaption}\item[{object\mbox{[}$\,$\mbox{]}}]{inputs}{}\end{DoxyParamCaption})}
+
+
+
+Run the subtraction function on the given arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inputs} & At least two float or int parameters. All arguments after the first are subtracted from the first.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float of all following arguments subtracted from the first.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Exception} & Throws if any arguments are non-\/float and non-\/int or if there is less than two provided.\\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interfaceCeLishp_1_1Interpreter_1_1INaryFunction_acfa779ebadc2b4ea9d3acbb823fcdb42}{Ce\+Lishp.\+Interpreter.\+INary\+Function}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Ce\+Lishp/\+Interpreter/\+Implementation/\mbox{\hyperlink{NarySubtraction_8cs}{Nary\+Subtraction.\+cs}}\end{DoxyCompactItemize}

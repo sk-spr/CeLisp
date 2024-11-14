@@ -74,7 +74,7 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where Doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = CeLishp/docs
+OUTPUT_DIRECTORY       = .
 
 # If the CREATE_SUBDIRS tag is set to YES then Doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -1354,7 +1354,7 @@ GENERATE_HTML          = YES
 # The default directory is: html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_OUTPUT            = html
+HTML_OUTPUT            = dochtml
 
 # The HTML_FILE_EXTENSION tag can be used to specify the file extension for each
 # generated HTML page (for example: .htm, .php, .asp).
@@ -2026,7 +2026,7 @@ GENERATE_LATEX         = YES
 # The default directory is: latex.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-LATEX_OUTPUT           = latex
+LATEX_OUTPUT           = docs/latex
 
 # The LATEX_CMD_NAME tag can be used to specify the LaTeX command name to be
 # invoked.
@@ -2211,7 +2211,7 @@ GENERATE_RTF           = YES
 # The default directory is: rtf.
 # This tag requires that the tag GENERATE_RTF is set to YES.
 
-RTF_OUTPUT             = rtf
+RTF_OUTPUT             = docs/rtf
 
 # If the COMPACT_RTF tag is set to YES, Doxygen generates more compact RTF
 # documents. This may be useful for small projects and may help to save some
@@ -2352,7 +2352,7 @@ GENERATE_DOCBOOK       = YES
 # The default directory is: docbook.
 # This tag requires that the tag GENERATE_DOCBOOK is set to YES.
 
-DOCBOOK_OUTPUT         = docbook
+DOCBOOK_OUTPUT         = docs/docbook
 
 #---------------------------------------------------------------------------
 # Configuration options for the AutoGen Definitions output

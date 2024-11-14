@@ -1,8 +1,0 @@
-<map id="CeLishp.Interpreter.Constant&lt; T &gt;" name="CeLishp.Interpreter.Constant&lt; T &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,226,178"/>
-<area shape="rect" id="Node000002" href="$interfaceCeLishp_1_1Interpreter_1_1IInputValue.html" title=" " alt="" coords="72,79,159,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,120,118,152,113,152,113,120"/>
-<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="167,76,180,81,185,92,182,100,174,106,151,108,150,103,172,101,178,97,180,92,176,85,165,81"/>
-<area shape="rect" id="Node000003" href="$interfaceCeLishp_1_1Interpreter_1_1IInterpretable.html" title=" " alt="" coords="67,5,164,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,46,118,79,113,79,113,46"/>
-</map>

@@ -49,7 +49,9 @@ Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Inter
     <title>GetValue()</title>
 <indexterm><primary>GetValue</primary><secondary>CeLishp.Interpreter.IInputValue</secondary></indexterm>
 <indexterm><primary>CeLishp.Interpreter.IInputValue</primary><secondary>GetValue</secondary></indexterm>
-<para><computeroutput>object CeLishp.Interpreter.IInputValue.GetValue ( )</computeroutput></para></section>
+<para><computeroutput>object CeLishp.Interpreter.IInputValue.GetValue ( )</computeroutput></para><para>
+Implemented in <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1a825abfd2c1575457448d0f41cb42a363">CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</link>.</para>
+</section>
 <para>
 The documentation for this interface was generated from the following file:</para>
 CeLishp/Interpreter/<link linkend="_IInputValue_8cs">IInputValue.cs</link></section>

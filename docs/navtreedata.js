@@ -25,6 +25,15 @@
 var NAVTREE =
 [
   [ "CeLishp", "index.html", [
+    [ "CeLishp: Extensible & Modular scripting language", "md_CeLishp_2docs_2README.html", [
+      [ "Background", "md_CeLishp_2docs_2README.html#autotoc_md1", null ],
+      [ "Usage", "md_CeLishp_2docs_2README.html#autotoc_md2", [
+        [ "Quick Start", "md_CeLishp_2docs_2README.html#autotoc_md3", null ],
+        [ "Custom values", "md_CeLishp_2docs_2README.html#autotoc_md4", null ],
+        [ "Custom functions", "md_CeLishp_2docs_2README.html#autotoc_md5", null ],
+        [ "Custom Syntax", "md_CeLishp_2docs_2README.html#autotoc_md6", null ]
+      ] ]
+    ] ],
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ]
     ] ],

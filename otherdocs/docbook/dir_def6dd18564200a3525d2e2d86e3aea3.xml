@@ -18,6 +18,10 @@ Directory dependency graph for Debug:<para>
 </listitem>
             <listitem><para>directory <link linkend="_dir_7bbe85e1ad052cc3d30632ed12853d56">net9.0</link></para>
 </listitem>
+            <listitem><para>directory <link linkend="_dir_74529587199a03bde174b2bb39514ea3">netstandard2.0</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_ff68aedc3a652d72f93be0cd86d99127">netstandard2.1</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>

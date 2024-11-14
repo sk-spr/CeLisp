@@ -172,6 +172,163 @@ Version v0.1.4\par\page\page\vertalt
 \sect \sbkpage \pgndec \pgnrestart
 \sect \sectd \sbknone
 {\footer \s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid {\chpgn}}
+\par \pard\plain 
+\par \pard\plain 
+\pard\plain \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
+CeLishp: Extensible & Modular scripting language\par \pard\plain 
+{\tc\tcl1 \v CeLishp: Extensible & Modular scripting language}
+{\xe \v CeLishp: Extensible & Modular scripting language}
+{\bkmkstart AAAAAAAABB}
+{\bkmkend AAAAAAAABB}
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\bkmkstart AAAAAAAABC}
+{\bkmkend AAAAAAAABC}
+\par
+{\b CeLishp} is a framework for implementing a (domain-specific) scripting language into a project.\par
+{\f2 Online documentation can be found here.}\par
+{\bkmkstart AAAAAAAABD}
+{\bkmkend AAAAAAAABD}
+{{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+Background
+\par}
+{\tc\tcl2 \v Background}
+Have you ever found yourself implementing yet another simple scripting language for a project, when you've done that too many times already? This project aims to provide a reusable framework for simply adding such a language, where you only need to replace the components you need, and provide a value and function inventory.\par}
+{\bkmkstart AAAAAAAABE}
+{\bkmkend AAAAAAAABE}
+{{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+Usage
+\par}
+{\tc\tcl2 \v Usage}
+{\b CeLishp} provides a set of interfaces that can/must be implemented in order to construct a scripting language. All functions and values derive from {\i IInterpretable} , where input values derive from {\i IInputValue}  and functions from {\i INaryFunction} .\par
+{\bkmkstart AAAAAAAABF}
+{\bkmkend AAAAAAAABF}
+{{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Quick Start
+\par}
+{\tc\tcl3 \v Quick Start}
+To get started, the types provided in {\i {\b CeLishp.Interpreter.Implementation}}  for values and functions as well as the Syntax Provider {\i {\b CeLishp.Parser.Implementation.SimpleLispSyntax}}  can be used. A minimal program using these could look like this:\par
+{
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid {\cf17 using }CeLishp.Interpreter;\par
+{\cf17 using }CeLishp.Interpreter.Implementation;\par
+{\cf17 using }CeLishp.Parser;\par
+{\cf17 using }CeLishp.Parser.Implementation;\par
+\par
+{\cf20 // function inventory must be provided, in this case there are only two.}\par
+var functionInventory = {\cf17 new} Dictionary<string, INaryFunction>()\par
+\{\par
+    \{ {\cf22 "add"}, {\cf17 new} NaryAddition() \}, {\cf20 // NaryAddition is assigned to the keyword "add"}\par
+    \{ {\cf22 "sub"}, {\cf17 new} NarySubtraction() \} {\cf20 // NarySubtraction is assigned to the keyword "sub"}\par
+\};\par
+\par
+{\cf20 // value inventory is the possible value keywords}\par
+var valueInventory = {\cf17 new} Dictionary<string, IInputValue>()\par
+\{\par
+    \{ {\cf22 "seven"}, {\cf17 new} Constant<float>(7f) \}, {\cf20 // We define "seven" as meaning a constant value of 7}\par
+\};\par
+\par
+{\cf20 // SimpleLispSyntax is our SyntaxProvider, it provides a very minimal Lisp-like syntax with support for numeric literals}\par
+ISyntaxProvider provider = {\cf17 new} SimpleLispSyntax();\par
+Console.Write({\cf22 "Formula: "});\par
+\par
+{\cf20 // get source code as string, e.g. from stdin}\par
+var sourceCode = Console.ReadLine();\par
+\par
+{\cf20 // generate a syntax tree from the input, as long as it is not null}\par
+var synTree = provider.GenerateTree(sourceCode!);\par
+\par
+{\cf20 // parse the syntax tree into an interpretable form using our function and value inventory}\par
+var exTree = provider.ParseTree(synTree, functionInventory, valueInventory);\par
+\par
+{\cf20 // an Interpreter is needed to run our interpretable tree}\par
+var interpreter = {\cf17 new} Interpreter(exTree);\par
+\par
+{\cf20 // we let our interpreter run the formula once, specifying the output type as a float}\par
+Console.WriteLine(${\cf22 "Result of our formula = \{interpreter.RunTree<float>()\}"});\par
+}
+ This program could, for example, take the input {\f2 (add (sub seven 3.2) 4.3)}  and produce the output value 9.1\par}
+{\bkmkstart AAAAAAAABG}
+{\bkmkend AAAAAAAABG}
+{{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Custom values
+\par}
+{\tc\tcl3 \v Custom values}
+In most, if not all cases, you'd want to get some kind of value to use in your calculations. This can be done by implementing {\i IInputValue} , and adding this to our valueInventory. For example, if we want to add random numbers, we would create a new class as follows: {
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid {\cf17 using }CeLishp.Interpreter;\par
+\par
+{\cf17 public} {\cf17 class }RandomNumber : IInputValue\par
+\{\par
+    {\cf17 public} {\cf18 object} Run(IInterpretable input)\par
+    \{\par
+        {\cf19 throw} {\cf17 new} NotImplementedException();\par
+    \}\par
+    {\cf20 // GetValue in our case simply returns a random float between 0f and 1f}\par
+    {\cf17 public} {\cf18 object} GetValue()\par
+    \{\par
+        var random = {\cf17 new} Random();\par
+        {\cf19 return} random.NextSingle();\par
+    \}\par
+\}\par
+}
+\par
+Then, we add this along with a keyword to our valueInventory: {
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid var valueInventory = {\cf17 new} Dictionary<string, IInputValue>()\par
+\{\par
+    \{ {\cf22 "rand"}, {\cf17 new} RandomNumber() \},\par
+\};\par
+}
+ Then, we proceed as shown above. Now, whenever "rand" appears as a keyword in our formula, a random number is substituted at runtime.\par}
+{\bkmkstart AAAAAAAABH}
+{\bkmkend AAAAAAAABH}
+{{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Custom functions
+\par}
+{\tc\tcl3 \v Custom functions}
+Custom functions derive from {\i INaryFunction} . If we want to add e.g. a conditional value selector, we would add the following class: {
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid {\cf17 using }CeLishp.Interpreter;\par
+\par
+{\cf17 public} {\cf17 class }Conditional : INaryFunction\par
+\{\par
+    {\cf17 public} {\cf18 object} Run({\cf18 object}[] input)\par
+    \{\par
+        {\cf19 throw} {\cf17 new} NotImplementedException();\par
+    \}\par
+\par
+    {\cf17 public} {\cf18 object} RunNary({\cf18 object}[] inputs)\par
+    \{\par
+        {\cf19 if} (inputs == {\cf17 null} || inputs.Length != 3)\par
+            {\cf19 throw} {\cf17 new} ArgumentException({\cf22 "Conditional must have exactly three inputs"});\par
+        {\cf19 if} (inputs[0] is not {\cf18 bool} b)\par
+            {\cf19 throw} {\cf17 new} ArgumentException({\cf22 "Conditional must have a boolean as first argument!"});\par
+        {\cf19 if} (b)\par
+            {\cf19 return} inputs[0];\par
+        {\cf19 return} inputs[1];\par
+    \}\par
+\}\par
+}
+ We then simply add this to our functionInventory: {
+\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid var functionInventory = {\cf17 new} Dictionary<string, INaryFunction>()\par
+\{\par
+    \{ {\cf22 "add"}, {\cf17 new} NaryAddition() \},\par
+    \{ {\cf22 "sub"}, {\cf17 new} NarySubtraction() \},\par
+    \{ {\cf22 "if"}, {\cf17 new} Conditional() \},\par
+\};\par
+}
+ Now, our source code can contain conditionals.\par}
+{\bkmkstart AAAAAAAABI}
+{\bkmkend AAAAAAAABI}
+{{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Custom Syntax
+\par}
+{\tc\tcl3 \v Custom Syntax}
+To implement a custom syntax, we must implement {\i ISyntaxProvider} . \par}
+\par}
+}}
 
 \pard\plain \sect\sbkpage
 \s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid 
@@ -184,15 +341,15 @@ Package List\par \pard\plain
 {
 \par
 \pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-{\b {\b CeLishp} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAV \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b CeLishp} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABJ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b CeLishp.Interpreter} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAW \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b CeLishp.Interpreter} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABK \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b CeLishp.Interpreter.Implementation} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABR \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b CeLishp.Interpreter.Implementation} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACH \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b CeLishp.Parser} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACD \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b CeLishp.Parser} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACV \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b CeLishp.Parser.Implementation} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACQ \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b CeLishp.Parser.Implementation} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADI \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -206,40 +363,45 @@ Class Hierarchy\par \pard\plain
 {
 \par
 \pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-CeLishp.Interpreter.IInterpretable\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Interpreter.IInterpretable\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABO \\*MERGEFORMAT}{\fldrslt pagenum}}
 {
 \par
 \pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-CeLishp.Interpreter.IInputValue\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAX \\*MERGEFORMAT}{\fldrslt pagenum}}
-\par
-CeLishp.Interpreter.INaryFunction\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABE \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Interpreter.IInputValue\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABL \\*MERGEFORMAT}{\fldrslt pagenum}}
 {
 \par
 \pard\plain \s103\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-CeLishp.Interpreter.Implementation.NaryAddition\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABS \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Interpreter.Implementation.Constant< T >\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACI \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-CeLishp.Interpreter.Implementation.NarySubtraction\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABT \\*MERGEFORMAT}{\fldrslt pagenum}}
+}\par
+CeLishp.Interpreter.INaryFunction\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABU \\*MERGEFORMAT}{\fldrslt pagenum}}
+{
 \par
-CeLishp.Interpreter.Implementation.UnaryTrig\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABU \\*MERGEFORMAT}{\fldrslt pagenum}}
+\pard\plain \s103\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+CeLishp.Interpreter.Implementation.NaryAddition\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACK \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+CeLishp.Interpreter.Implementation.NarySubtraction\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACL \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+CeLishp.Interpreter.Implementation.UnaryTrig\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACM \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 }\par
 }\par
-CeLishp.Interpreter.InterpretableNode\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Interpreter.InterpretableNode\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABZ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-CeLishp.Interpreter.InterpretableTree\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABM \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Interpreter.InterpretableTree\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-CeLishp.Interpreter.Interpreter\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABO \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Interpreter.Interpreter\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACE \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-CeLishp.Parser.ISyntaxProvider\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACE \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Parser.ISyntaxProvider\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACW \\*MERGEFORMAT}{\fldrslt pagenum}}
 {
 \par
 \pard\plain \s102\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-CeLishp.Parser.Implementation.SimpleLispSyntax\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACR \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Parser.Implementation.SimpleLispSyntax\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADJ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 }\par
-CeLishp.Parser.SyntaxNode\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Parser.SyntaxNode\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADB \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-CeLishp.Parser.SyntaxTree\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACN \\*MERGEFORMAT}{\fldrslt pagenum}}
+CeLishp.Parser.SyntaxTree\tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADF \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 }
 \pard\plain \sect\sbkpage
@@ -253,43 +415,46 @@ Class List\par \pard\plain
 {
 \par
 \pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
+{\b {\b CeLishp.Interpreter.Implementation.Constant< T >} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACI \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
 {\b {\b CeLishp.Interpreter.IInputValue} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Input value that can be inserted in a tree - provides a value })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAX \\*MERGEFORMAT}{\fldrslt pagenum}}
+Input value that can be inserted in a tree - provides a value })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABL \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.IInterpretable} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Base interface for interpretable elements })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+Base interface for interpretable elements })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABO \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.INaryFunction} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\b IInterpretable} that provides a function taking one or more inputs })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABE \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b IInterpretable} that provides a function taking one or more inputs })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABU \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.InterpretableNode} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Struct representing a node in an {\b InterpretableTree} })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+Struct representing a node in an {\b InterpretableTree} })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABZ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.InterpretableTree} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Represents a tree of {\b InterpretableNode} })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABM \\*MERGEFORMAT}{\fldrslt pagenum}}
+Represents a tree of {\b InterpretableNode} })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b CeLishp.Interpreter.Interpreter} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABO \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b CeLishp.Interpreter.Interpreter} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACE \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Parser.ISyntaxProvider} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Provides syntax parsing functionality - a concrete implementation defines the syntactic layout of the language })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACE \\*MERGEFORMAT}{\fldrslt pagenum}}
+Provides syntax parsing functionality - a concrete implementation defines the syntactic layout of the language })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACW \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.Implementation.NaryAddition} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Addition function taking a variable number of inputs })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABS \\*MERGEFORMAT}{\fldrslt pagenum}}
+Addition function taking a variable number of inputs })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACK \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.Implementation.NarySubtraction} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Subtraction function taking two or more arguments })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABT \\*MERGEFORMAT}{\fldrslt pagenum}}
+Subtraction function taking two or more arguments })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACL \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Parser.Implementation.SimpleLispSyntax} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-One possible implementation of a {\b ISyntaxProvider} providing a simple lisp-like syntax })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACR \\*MERGEFORMAT}{\fldrslt pagenum}}
+One possible implementation of a {\b ISyntaxProvider} providing a simple lisp-like syntax })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADJ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Parser.SyntaxNode} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-A node in a syntax tree: Contains a function/keyword/literal and an optional list of child nodes })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+A node in a syntax tree: Contains a function/keyword/literal and an optional list of child nodes })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADB \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Parser.SyntaxTree} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Syntax tree representing a parsed formula })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACN \\*MERGEFORMAT}{\fldrslt pagenum}}
+Syntax tree representing a parsed formula })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADF \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b CeLishp.Interpreter.Implementation.UnaryTrig} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Unary trigonometry functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABU \\*MERGEFORMAT}{\fldrslt pagenum}}
+Unary trigonometry functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAACM \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -303,47 +468,57 @@ File List\par \pard\plain
 {
 \par
 \pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
-{\b CeLishp/Interpreter/{\b IInputValue.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAA \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/{\b IInputValue.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAB \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/{\b IInterpretable.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAB \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/{\b IInterpretable.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/{\b INaryFunction.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAG \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/{\b INaryFunction.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAH \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/{\b InterpretableNode.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAH \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/{\b InterpretableNode.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAI \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/{\b InterpretableTree.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAI \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/{\b InterpretableTree.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAJ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/{\b Interpreter.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/{\b Interpreter.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAK \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/Implementation/{\b Constant.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAC \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/Implementation/{\b Constant.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAD \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/Implementation/{\b NaryAddition.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAD \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/Implementation/{\b NaryAddition.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAE \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/Implementation/{\b NarySubtraction.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAE \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/Implementation/{\b NarySubtraction.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAF \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Interpreter/Implementation/{\b UnaryTrig.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAF \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/Interpreter/Implementation/{\b UnaryTrig.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAG \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/{\b .NETFramework,Version=v4.8.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAK \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/{\b .NETFramework,Version=v4.8.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAL \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/net8.0/{\b .NETCoreApp,Version=v8.0.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAL \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/net8.0/{\b .NETCoreApp,Version=v8.0.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAM \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/net8.0/{\b CeLishp.AssemblyInfo.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAM \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/net8.0/{\b CeLishp.AssemblyInfo.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAN \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/net8.0/{\b CeLishp.GlobalUsings.g.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAO \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/net8.0/{\b CeLishp.GlobalUsings.g.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAR \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/net9.0/{\b .NETCoreApp,Version=v9.0.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAQ \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/net9.0/{\b .NETCoreApp,Version=v9.0.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAU \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/net9.0/{\b CeLishp.AssemblyInfo.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAN \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/net9.0/{\b CeLishp.AssemblyInfo.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAO \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/obj/Debug/net9.0/{\b CeLishp.GlobalUsings.g.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAP \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/net9.0/{\b CeLishp.GlobalUsings.g.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAS \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Parser/{\b ISyntaxProvider.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAS \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/netstandard2.0/{\b .NETStandard,Version=v2.0.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAV \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Parser/{\b SyntaxNode.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAT \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/netstandard2.0/{\b CeLishp.AssemblyInfo.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Parser/{\b SyntaxTree.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAU \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/netstandard2.1/{\b .NETStandard,Version=v2.1.AssemblyAttributes.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAW \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b CeLishp/Parser/Implementation/{\b SimpleLispSyntax.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAR \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b CeLishp/obj/Debug/netstandard2.1/{\b CeLishp.AssemblyInfo.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAQ \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b CeLishp/obj/Debug/netstandard2.1/{\b CeLishp.GlobalUsings.g.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAT \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b CeLishp/Parser/{\b ISyntaxProvider.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAY \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b CeLishp/Parser/{\b SyntaxNode.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b CeLishp/Parser/{\b SyntaxTree.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAABA \\*MERGEFORMAT}{\fldrslt pagenum}}
+\par
+{\b CeLishp/Parser/Implementation/{\b SimpleLispSyntax.cs} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAAX \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -353,8 +528,8 @@ Namespace Documentation\par \pard\plain
 CeLishp Namespace Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp}
 {\xe \v CeLishp}
-{\bkmkstart AAAAAAAAAV}
-{\bkmkend AAAAAAAAAV}
+{\bkmkstart AAAAAAAABJ}
+{\bkmkend AAAAAAAABJ}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Namespaces\par
 \pard\plain 
@@ -373,8 +548,8 @@ namespace {\b Parser}\par
 CeLishp.Interpreter Namespace Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter}
 {\xe \v CeLishp.Interpreter}
-{\bkmkstart AAAAAAAAAW}
-{\bkmkend AAAAAAAAAW}
+{\bkmkstart AAAAAAAABK}
+{\bkmkend AAAAAAAABK}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Namespaces\par
 \pard\plain 
@@ -418,13 +593,17 @@ class {\b Interpreter}}
 CeLishp.Interpreter.Implementation Namespace Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.Implementation}
 {\xe \v CeLishp.Interpreter.Implementation}
-{\bkmkstart AAAAAAAABR}
-{\bkmkend AAAAAAAABR}
+{\bkmkstart AAAAAAAACH}
+{\bkmkend AAAAAAAACH}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
 
 {
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b Constant}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T. }}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 class {\b NaryAddition}{
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -446,8 +625,8 @@ Unary trigonometry functions. }}\par}
 CeLishp.Parser Namespace Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Parser}
 {\xe \v CeLishp.Parser}
-{\bkmkstart AAAAAAAACD}
-{\bkmkend AAAAAAAACD}
+{\bkmkstart AAAAAAAACV}
+{\bkmkend AAAAAAAACV}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Namespaces\par
 \pard\plain 
@@ -482,8 +661,8 @@ Syntax tree representing a parsed formula. }}\par}
 CeLishp.Parser.Implementation Namespace Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Parser.Implementation}
 {\xe \v CeLishp.Parser.Implementation}
-{\bkmkstart AAAAAAAACQ}
-{\bkmkend AAAAAAAACQ}
+{\bkmkstart AAAAAAAADI}
+{\bkmkend AAAAAAAADI}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -500,11 +679,189 @@ One possible implementation of a {\b ISyntaxProvider} providing a simple lisp-li
 Class Documentation{\tc \v Class Documentation}
 \par \pard\plain 
 \pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp.Interpreter.Implementation.Constant< T > Class Template Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp.Interpreter.Implementation.Constant< T >}
+{\xe \v CeLishp.Interpreter.Implementation.Constant< T >}
+{\bkmkstart AAAAAAAACI}
+{\bkmkend AAAAAAAACI}
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T. }}\par
+Inheritance diagram for CeLishp.Interpreter.Implementation.Constant< T >:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant__inherit__graph.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\par
+Collaboration diagram for CeLishp.Interpreter.Implementation.Constant< T >:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant__coll__graph.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\par
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b Constant} (T val)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+object {\b Run} (object[] input)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Run the {\b Constant} as an {\b IInterpretable} }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+object {\b GetValue} ()\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get the value of the {\b Constant}. }{
+}\par
+}\par}
+}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Public Member Functions inherited from {\b CeLishp.Interpreter.IInputValue}\par
+\pard\plain 
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Public Member Functions inherited from {\b CeLishp.Interpreter.IInterpretable}\par
+\pard\plain 
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Template Parameters\par}
+\pard\plain \s80\li0\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i T} \cell }{The type of the constant to be provided\cell }
+{\row }
+}
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Constructor & Destructor Documentation\par
+\pard\plain 
+{\xe \v Constant\:CeLishp.Interpreter.Implementation.Constant< T >}
+{\xe \v CeLishp.Interpreter.Implementation.Constant< T >\:Constant}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+{\b CeLishp.Interpreter.Implementation.Constant}< T >.{\b Constant} (T val)}}
+\par
+{\bkmkstart AAAAAAAACJ}
+{\bkmkend AAAAAAAACJ}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Template Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i T} \cell }{The type of the constant to be provided\cell }
+{\row }
+}
+}}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v GetValue\:CeLishp.Interpreter.Implementation.Constant< T >}
+{\xe \v CeLishp.Interpreter.Implementation.Constant< T >\:GetValue}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+object {\b CeLishp.Interpreter.Implementation.Constant}< T >.GetValue ()}}
+\par
+{\bkmkstart AAAAAAAABN}
+{\bkmkend AAAAAAAABN}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get the value of the {\b Constant}. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b Constant}'s value of type {\i T}  \par
+}}}{
+Implements {\b CeLishp.Interpreter.IInputValue} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABM \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+}
+{\xe \v Run\:CeLishp.Interpreter.Implementation.Constant< T >}
+{\xe \v CeLishp.Interpreter.Implementation.Constant< T >\:Run}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+object {\b CeLishp.Interpreter.Implementation.Constant}< T >.Run (object[] input)}}
+\par
+{\bkmkstart AAAAAAAABQ}
+{\bkmkend AAAAAAAABQ}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Run the {\b Constant} as an {\b IInterpretable} }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i input} \cell }{Inputs. Should be null.\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+\par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Exceptions\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i NotImplementedException} \cell }{Currently throws, as Constants expect to be treated as {\b IInputValue}\cell }
+{\row }
+}
+}{
+Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABP \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+The documentation for this class was generated from the following file:{\par
+\pard\plain \s121\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+CeLishp/Interpreter/Implementation/{\b Constant.cs}\par
+}\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 CeLishp.Interpreter.IInputValue Interface Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.IInputValue}
 {\xe \v CeLishp.Interpreter.IInputValue}
-{\bkmkstart AAAAAAAAAX}
-{\bkmkend AAAAAAAAAX}
+{\bkmkstart AAAAAAAABL}
+{\bkmkend AAAAAAAABL}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -558,10 +915,13 @@ Member Function Documentation\par
 {\b 
 object CeLishp.Interpreter.IInputValue.GetValue ()}}
 \par
-{\bkmkstart AAAAAAAAAY}
-{\bkmkend AAAAAAAAAY}
+{\bkmkstart AAAAAAAABM}
+{\bkmkend AAAAAAAABM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Implemented in {\b CeLishp.Interpreter.Implementation.Constant< T >} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABN \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this interface was generated from the following file:{\par
@@ -575,8 +935,8 @@ CeLishp/Interpreter/{\b IInputValue.cs}\par
 CeLishp.Interpreter.IInterpretable Interface Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.IInterpretable}
 {\xe \v CeLishp.Interpreter.IInterpretable}
-{\bkmkstart AAAAAAAAAZ}
-{\bkmkend AAAAAAAAAZ}
+{\bkmkstart AAAAAAAABO}
+{\bkmkend AAAAAAAABO}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -617,8 +977,8 @@ Member Function Documentation\par
 {\b 
 object CeLishp.Interpreter.IInterpretable.Run (object[] input)}}
 \par
-{\bkmkstart AAAAAAAABA}
-{\bkmkend AAAAAAAABA}
+{\bkmkstart AAAAAAAABP}
+{\bkmkend AAAAAAAABP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -640,7 +1000,7 @@ Parameters\par}
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 The result of the operation\par
 }}}{
-Implemented in {\b CeLishp.Interpreter.Implementation.NaryAddition} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABB \\*MERGEFORMAT}{\fldrslt pagenum}}}), {\b CeLishp.Interpreter.Implementation.NarySubtraction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABC \\*MERGEFORMAT}{\fldrslt pagenum}}}), and {\b CeLishp.Interpreter.Implementation.UnaryTrig} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABD \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implemented in {\b CeLishp.Interpreter.Implementation.Constant< T >} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABQ \\*MERGEFORMAT}{\fldrslt pagenum}}}), {\b CeLishp.Interpreter.Implementation.NaryAddition} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABR \\*MERGEFORMAT}{\fldrslt pagenum}}}), {\b CeLishp.Interpreter.Implementation.NarySubtraction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABS \\*MERGEFORMAT}{\fldrslt pagenum}}}), and {\b CeLishp.Interpreter.Implementation.UnaryTrig} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABT \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this interface was generated from the following file:{\par
@@ -654,8 +1014,8 @@ CeLishp/Interpreter/{\b IInterpretable.cs}\par
 CeLishp.Interpreter.INaryFunction Interface Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.INaryFunction}
 {\xe \v CeLishp.Interpreter.INaryFunction}
-{\bkmkstart AAAAAAAABE}
-{\bkmkend AAAAAAAABE}
+{\bkmkstart AAAAAAAABU}
+{\bkmkend AAAAAAAABU}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -714,8 +1074,8 @@ Member Function Documentation\par
 {\b 
 object CeLishp.Interpreter.INaryFunction.RunNary (object[] inputs)}}
 \par
-{\bkmkstart AAAAAAAABF}
-{\bkmkend AAAAAAAABF}
+{\bkmkstart AAAAAAAABV}
+{\bkmkend AAAAAAAABV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -737,7 +1097,7 @@ Parameters\par}
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 The result of the given function over the given inputs.\par
 }}}{
-Implemented in {\b CeLishp.Interpreter.Implementation.NaryAddition} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABG \\*MERGEFORMAT}{\fldrslt pagenum}}}), {\b CeLishp.Interpreter.Implementation.NarySubtraction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABH \\*MERGEFORMAT}{\fldrslt pagenum}}}), and {\b CeLishp.Interpreter.Implementation.UnaryTrig} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABI \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implemented in {\b CeLishp.Interpreter.Implementation.NaryAddition} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABW \\*MERGEFORMAT}{\fldrslt pagenum}}}), {\b CeLishp.Interpreter.Implementation.NarySubtraction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABX \\*MERGEFORMAT}{\fldrslt pagenum}}}), and {\b CeLishp.Interpreter.Implementation.UnaryTrig} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABY \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this interface was generated from the following file:{\par
@@ -751,8 +1111,8 @@ CeLishp/Interpreter/{\b INaryFunction.cs}\par
 CeLishp.Interpreter.InterpretableNode Struct Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.InterpretableNode}
 {\xe \v CeLishp.Interpreter.InterpretableNode}
-{\bkmkstart AAAAAAAABJ}
-{\bkmkend AAAAAAAABJ}
+{\bkmkstart AAAAAAAABZ}
+{\bkmkend AAAAAAAABZ}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -800,8 +1160,8 @@ Member Data Documentation\par
 {\b 
 {\b InterpretableNode} [] CeLishp.Interpreter.InterpretableNode.Children}}
 \par
-{\bkmkstart AAAAAAAABK}
-{\bkmkend AAAAAAAABK}
+{\bkmkstart AAAAAAAACA}
+{\bkmkend AAAAAAAACA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -815,8 +1175,8 @@ The children of the node, can be null e.g. for input values. }}\par
 {\b 
 {\b IInterpretable} CeLishp.Interpreter.InterpretableNode.Content}}
 \par
-{\bkmkstart AAAAAAAABL}
-{\bkmkend AAAAAAAABL}
+{\bkmkstart AAAAAAAACB}
+{\bkmkend AAAAAAAACB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -836,8 +1196,8 @@ CeLishp/Interpreter/{\b InterpretableNode.cs}\par
 CeLishp.Interpreter.InterpretableTree Struct Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.InterpretableTree}
 {\xe \v CeLishp.Interpreter.InterpretableTree}
-{\bkmkstart AAAAAAAABM}
-{\bkmkend AAAAAAAABM}
+{\bkmkstart AAAAAAAACC}
+{\bkmkend AAAAAAAACC}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -878,8 +1238,8 @@ Member Data Documentation\par
 {\b 
 {\b InterpretableNode} CeLishp.Interpreter.InterpretableTree.RootNode}}
 \par
-{\bkmkstart AAAAAAAABN}
-{\bkmkend AAAAAAAABN}
+{\bkmkstart AAAAAAAACD}
+{\bkmkend AAAAAAAACD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -899,8 +1259,8 @@ CeLishp/Interpreter/{\b InterpretableTree.cs}\par
 CeLishp.Interpreter.Interpreter Class Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.Interpreter}
 {\xe \v CeLishp.Interpreter.Interpreter}
-{\bkmkstart AAAAAAAABO}
-{\bkmkend AAAAAAAABO}
+{\bkmkstart AAAAAAAACE}
+{\bkmkend AAAAAAAACE}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Public Member Functions\par
 \pard\plain 
@@ -921,8 +1281,8 @@ Constructor & Destructor Documentation\par
 {\b 
 CeLishp.Interpreter.Interpreter.Interpreter ({\b InterpretableTree} tree)}}
 \par
-{\bkmkstart AAAAAAAABP}
-{\bkmkend AAAAAAAABP}
+{\bkmkstart AAAAAAAACF}
+{\bkmkend AAAAAAAACF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 }
@@ -936,8 +1296,8 @@ Member Function Documentation\par
 {\b 
 T CeLishp.Interpreter.Interpreter.RunTree< T > ()}}
 \par
-{\bkmkstart AAAAAAAABQ}
-{\bkmkend AAAAAAAABQ}
+{\bkmkstart AAAAAAAACG}
+{\bkmkend AAAAAAAACG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 }
@@ -953,8 +1313,8 @@ CeLishp/Interpreter/{\b Interpreter.cs}\par
 CeLishp.Parser.ISyntaxProvider Interface Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Parser.ISyntaxProvider}
 {\xe \v CeLishp.Parser.ISyntaxProvider}
-{\bkmkstart AAAAAAAACE}
-{\bkmkend AAAAAAAACE}
+{\bkmkstart AAAAAAAACW}
+{\bkmkend AAAAAAAACW}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1002,8 +1362,8 @@ Member Function Documentation\par
 {\b 
 {\b SyntaxTree} CeLishp.Parser.ISyntaxProvider.GenerateTree (string source)}}
 \par
-{\bkmkstart AAAAAAAACF}
-{\bkmkend AAAAAAAACF}
+{\bkmkstart AAAAAAAACX}
+{\bkmkend AAAAAAAACX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1025,7 +1385,7 @@ Parameters\par}
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b SyntaxTree} of the parsed source code\par
 }}}{
-Implemented in {\b CeLishp.Parser.Implementation.SimpleLispSyntax} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACG \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implemented in {\b CeLishp.Parser.Implementation.SimpleLispSyntax} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACY \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\xe \v ParseTree\:CeLishp.Parser.ISyntaxProvider}
 {\xe \v CeLishp.Parser.ISyntaxProvider\:ParseTree}
@@ -1033,8 +1393,8 @@ Implemented in {\b CeLishp.Parser.Implementation.SimpleLispSyntax} ({\i p.{\fiel
 {\b 
 {\b InterpretableTree} CeLishp.Parser.ISyntaxProvider.ParseTree ({\b SyntaxTree} parsedSource, Dictionary< string, {\b INaryFunction} > functionInventory, Dictionary< string, {\b IInputValue} > valueInventory)}}
 \par
-{\bkmkstart AAAAAAAACH}
-{\bkmkend AAAAAAAACH}
+{\bkmkstart AAAAAAAACZ}
+{\bkmkend AAAAAAAACZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1068,7 +1428,7 @@ Parameters\par}
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 InterpretableTree that can be run\par
 }}}{
-Implemented in {\b CeLishp.Parser.Implementation.SimpleLispSyntax} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACI \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implemented in {\b CeLishp.Parser.Implementation.SimpleLispSyntax} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAADA \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this interface was generated from the following file:{\par
@@ -1082,8 +1442,8 @@ CeLishp/Parser/{\b ISyntaxProvider.cs}\par
 CeLishp.Interpreter.Implementation.NaryAddition Class Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.Implementation.NaryAddition}
 {\xe \v CeLishp.Interpreter.Implementation.NaryAddition}
-{\bkmkstart AAAAAAAABS}
-{\bkmkend AAAAAAAABS}
+{\bkmkstart AAAAAAAACK}
+{\bkmkend AAAAAAAACK}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1142,8 +1502,8 @@ Member Function Documentation\par
 {\b 
 object CeLishp.Interpreter.Implementation.NaryAddition.Run (object[] input)}}
 \par
-{\bkmkstart AAAAAAAABB}
-{\bkmkend AAAAAAAABB}
+{\bkmkstart AAAAAAAABR}
+{\bkmkend AAAAAAAABR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1174,7 +1534,7 @@ Exceptions\par}
 {\row }
 }
 }{
-Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABA \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABP \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\xe \v RunNary\:CeLishp.Interpreter.Implementation.NaryAddition}
 {\xe \v CeLishp.Interpreter.Implementation.NaryAddition\:RunNary}
@@ -1182,8 +1542,8 @@ Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fl
 {\b 
 object CeLishp.Interpreter.Implementation.NaryAddition.RunNary (object[] inputs)}}
 \par
-{\bkmkstart AAAAAAAABG}
-{\bkmkend AAAAAAAABG}
+{\bkmkstart AAAAAAAABW}
+{\bkmkend AAAAAAAABW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1214,7 +1574,7 @@ Exceptions\par}
 {\row }
 }
 }{
-Implements {\b CeLishp.Interpreter.INaryFunction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABF \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Interpreter.INaryFunction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABV \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this class was generated from the following file:{\par
@@ -1228,8 +1588,8 @@ CeLishp/Interpreter/Implementation/{\b NaryAddition.cs}\par
 CeLishp.Interpreter.Implementation.NarySubtraction Class Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.Implementation.NarySubtraction}
 {\xe \v CeLishp.Interpreter.Implementation.NarySubtraction}
-{\bkmkstart AAAAAAAABT}
-{\bkmkend AAAAAAAABT}
+{\bkmkstart AAAAAAAACL}
+{\bkmkend AAAAAAAACL}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1288,8 +1648,8 @@ Member Function Documentation\par
 {\b 
 object CeLishp.Interpreter.Implementation.NarySubtraction.Run (object[] input)}}
 \par
-{\bkmkstart AAAAAAAABC}
-{\bkmkend AAAAAAAABC}
+{\bkmkstart AAAAAAAABS}
+{\bkmkend AAAAAAAABS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1311,7 +1671,7 @@ Parameters\par}
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 The result of the operation\par
 }}}{
-Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABA \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABP \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\xe \v RunNary\:CeLishp.Interpreter.Implementation.NarySubtraction}
 {\xe \v CeLishp.Interpreter.Implementation.NarySubtraction\:RunNary}
@@ -1319,8 +1679,8 @@ Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fl
 {\b 
 object CeLishp.Interpreter.Implementation.NarySubtraction.RunNary (object[] inputs)}}
 \par
-{\bkmkstart AAAAAAAABH}
-{\bkmkend AAAAAAAABH}
+{\bkmkstart AAAAAAAABX}
+{\bkmkend AAAAAAAABX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1351,7 +1711,7 @@ Exceptions\par}
 {\row }
 }
 }{
-Implements {\b CeLishp.Interpreter.INaryFunction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABF \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Interpreter.INaryFunction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABV \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this class was generated from the following file:{\par
@@ -1365,8 +1725,8 @@ CeLishp/Interpreter/Implementation/{\b NarySubtraction.cs}\par
 CeLishp.Parser.Implementation.SimpleLispSyntax Class Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Parser.Implementation.SimpleLispSyntax}
 {\xe \v CeLishp.Parser.Implementation.SimpleLispSyntax}
-{\bkmkstart AAAAAAAACR}
-{\bkmkend AAAAAAAACR}
+{\bkmkstart AAAAAAAADJ}
+{\bkmkend AAAAAAAADJ}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1447,8 +1807,8 @@ Member Function Documentation\par
 {\b 
 {\b SyntaxTree} CeLishp.Parser.Implementation.SimpleLispSyntax.GenerateTree (string source)}}
 \par
-{\bkmkstart AAAAAAAACG}
-{\bkmkend AAAAAAAACG}
+{\bkmkstart AAAAAAAACY}
+{\bkmkend AAAAAAAACY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1470,7 +1830,7 @@ Parameters\par}
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b SyntaxTree} of the parsed source code\par
 }}}{
-Implements {\b CeLishp.Parser.ISyntaxProvider} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACF \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Parser.ISyntaxProvider} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACX \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\xe \v ParseTree\:CeLishp.Parser.Implementation.SimpleLispSyntax}
 {\xe \v CeLishp.Parser.Implementation.SimpleLispSyntax\:ParseTree}
@@ -1478,8 +1838,8 @@ Implements {\b CeLishp.Parser.ISyntaxProvider} ({\i p.{\field\fldedit {\*\fldins
 {\b 
 {\b InterpretableTree} CeLishp.Parser.Implementation.SimpleLispSyntax.ParseTree ({\b SyntaxTree} parsedSource, Dictionary< string, {\b INaryFunction} > naryInventory, Dictionary< string, {\b IInputValue} > valueInventory)}}
 \par
-{\bkmkstart AAAAAAAACI}
-{\bkmkend AAAAAAAACI}
+{\bkmkstart AAAAAAAADA}
+{\bkmkend AAAAAAAADA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1512,7 +1872,7 @@ Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \s
 InterpretableTree that can be run\par
 }} }}\par
 {
-Implements {\b CeLishp.Parser.ISyntaxProvider} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACH \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Parser.ISyntaxProvider} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAACZ \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this class was generated from the following file:{\par
@@ -1526,8 +1886,8 @@ CeLishp/Parser/Implementation/{\b SimpleLispSyntax.cs}\par
 CeLishp.Parser.SyntaxNode Struct Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Parser.SyntaxNode}
 {\xe \v CeLishp.Parser.SyntaxNode}
-{\bkmkstart AAAAAAAACJ}
-{\bkmkend AAAAAAAACJ}
+{\bkmkstart AAAAAAAADB}
+{\bkmkend AAAAAAAADB}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1583,8 +1943,8 @@ Member Function Documentation\par
 {\b 
 override string CeLishp.Parser.SyntaxNode.ToString ()}}
 \par
-{\bkmkstart AAAAAAAACK}
-{\bkmkend AAAAAAAACK}
+{\bkmkstart AAAAAAAADC}
+{\bkmkend AAAAAAAADC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 }
@@ -1598,8 +1958,8 @@ Member Data Documentation\par
 {\b 
 {\b SyntaxNode} [] CeLishp.Parser.SyntaxNode.Children}}
 \par
-{\bkmkstart AAAAAAAACL}
-{\bkmkend AAAAAAAACL}
+{\bkmkstart AAAAAAAADD}
+{\bkmkend AAAAAAAADD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1613,8 +1973,8 @@ Child nodes. }}\par
 {\b 
 string CeLishp.Parser.SyntaxNode.content}}
 \par
-{\bkmkstart AAAAAAAACM}
-{\bkmkend AAAAAAAACM}
+{\bkmkstart AAAAAAAADE}
+{\bkmkend AAAAAAAADE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1634,8 +1994,8 @@ CeLishp/Parser/{\b SyntaxNode.cs}\par
 CeLishp.Parser.SyntaxTree Class Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Parser.SyntaxTree}
 {\xe \v CeLishp.Parser.SyntaxTree}
-{\bkmkstart AAAAAAAACN}
-{\bkmkend AAAAAAAACN}
+{\bkmkstart AAAAAAAADF}
+{\bkmkend AAAAAAAADF}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1684,8 +2044,8 @@ Member Function Documentation\par
 {\b 
 override string CeLishp.Parser.SyntaxTree.ToString ()}}
 \par
-{\bkmkstart AAAAAAAACO}
-{\bkmkend AAAAAAAACO}
+{\bkmkstart AAAAAAAADG}
+{\bkmkend AAAAAAAADG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 }
@@ -1699,8 +2059,8 @@ Member Data Documentation\par
 {\b 
 {\b SyntaxNode} CeLishp.Parser.SyntaxTree.RootNode}}
 \par
-{\bkmkstart AAAAAAAACP}
-{\bkmkend AAAAAAAACP}
+{\bkmkstart AAAAAAAADH}
+{\bkmkend AAAAAAAADH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1720,8 +2080,8 @@ CeLishp/Parser/{\b SyntaxTree.cs}\par
 CeLishp.Interpreter.Implementation.UnaryTrig Class Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig}
-{\bkmkstart AAAAAAAABU}
-{\bkmkend AAAAAAAABU}
+{\bkmkstart AAAAAAAACM}
+{\bkmkend AAAAAAAACM}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1804,8 +2164,8 @@ Member Enumeration Documentation\par
 {\b 
 enum {\b CeLishp.Interpreter.Implementation.UnaryTrig.UnaryTrigFunction}}}
 \par
-{\bkmkstart AAAAAAAABV}
-{\bkmkend AAAAAAAABV}
+{\bkmkstart AAAAAAAACN}
+{\bkmkend AAAAAAAACN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1821,33 +2181,33 @@ Enumerator:\par}
 \pard \widctlpar\intbl\adjustright
 {\xe \v Sine\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:Sine}
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Sine{\bkmkstart AAAAAAAABW}
-{\bkmkend AAAAAAAABW}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Sine{\bkmkstart AAAAAAAACO}
+{\bkmkend AAAAAAAACO}
 \cell }{\cell }{\row }
 {\xe \v Cosine\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:Cosine}
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Cosine{\bkmkstart AAAAAAAABX}
-{\bkmkend AAAAAAAABX}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Cosine{\bkmkstart AAAAAAAACP}
+{\bkmkend AAAAAAAACP}
 \cell }{\cell }{\row }
 {\xe \v Tangent\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:Tangent}
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Tangent{\bkmkstart AAAAAAAABY}
-{\bkmkend AAAAAAAABY}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Tangent{\bkmkstart AAAAAAAACQ}
+{\bkmkend AAAAAAAACQ}
 \cell }{\cell }{\row }
 {\xe \v Arcsin\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:Arcsin}
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Arcsin{\bkmkstart AAAAAAAABZ}
-{\bkmkend AAAAAAAABZ}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Arcsin{\bkmkstart AAAAAAAACR}
+{\bkmkend AAAAAAAACR}
 \cell }{\cell }{\row }
 {\xe \v Arccos\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:Arccos}
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Arccos{\bkmkstart AAAAAAAACA}
-{\bkmkend AAAAAAAACA}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Arccos{\bkmkstart AAAAAAAACS}
+{\bkmkend AAAAAAAACS}
 \cell }{\cell }{\row }
 {\xe \v Arctan\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:Arctan}
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Arctan{\bkmkstart AAAAAAAACB}
-{\bkmkend AAAAAAAACB}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid Arctan{\bkmkstart AAAAAAAACT}
+{\bkmkend AAAAAAAACT}
 \cell }{\cell }{\row }
 }
 }
@@ -1861,8 +2221,8 @@ Constructor & Destructor Documentation\par
 {\b 
 CeLishp.Interpreter.Implementation.UnaryTrig.UnaryTrig ({\b UnaryTrigFunction} func)}}
 \par
-{\bkmkstart AAAAAAAACC}
-{\bkmkend AAAAAAAACC}
+{\bkmkstart AAAAAAAACU}
+{\bkmkend AAAAAAAACU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1891,8 +2251,8 @@ Member Function Documentation\par
 {\b 
 object CeLishp.Interpreter.Implementation.UnaryTrig.Run (object[] input)}}
 \par
-{\bkmkstart AAAAAAAABD}
-{\bkmkend AAAAAAAABD}
+{\bkmkstart AAAAAAAABT}
+{\bkmkend AAAAAAAABT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1923,7 +2283,7 @@ Exceptions\par}
 {\row }
 }
 }{
-Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABA \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABP \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\xe \v RunNary\:CeLishp.Interpreter.Implementation.UnaryTrig}
 {\xe \v CeLishp.Interpreter.Implementation.UnaryTrig\:RunNary}
@@ -1931,8 +2291,8 @@ Implements {\b CeLishp.Interpreter.IInterpretable} ({\i p.{\field\fldedit {\*\fl
 {\b 
 object CeLishp.Interpreter.Implementation.UnaryTrig.RunNary (object[] inputs)}}
 \par
-{\bkmkstart AAAAAAAABI}
-{\bkmkend AAAAAAAABI}
+{\bkmkstart AAAAAAAABY}
+{\bkmkend AAAAAAAABY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1963,7 +2323,7 @@ Exceptions\par}
 {\row }
 }
 }{
-Implements {\b CeLishp.Interpreter.INaryFunction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABF \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
+Implements {\b CeLishp.Interpreter.INaryFunction} ({\i p.{\field\fldedit {\*\fldinst PAGEREF AAAAAAAABV \\*MERGEFORMAT}{\fldrslt pagenum}}}).}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this class was generated from the following file:{\par
@@ -1975,11 +2335,21 @@ CeLishp/Interpreter/Implementation/{\b UnaryTrig.cs}\par
 File Documentation{\tc \v File Documentation}
 \par \pard\plain 
 \pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp/docs/README.md File Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp/docs/README.md}
+{\xe \v CeLishp/docs/README.md}
+{\bkmkstart AAAAAAAAAA}
+{\bkmkend AAAAAAAAAA}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 CeLishp/Interpreter/IInputValue.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/IInputValue.cs}
 {\xe \v CeLishp/Interpreter/IInputValue.cs}
-{\bkmkstart AAAAAAAAAA}
-{\bkmkend AAAAAAAAAA}
+{\bkmkstart AAAAAAAAAB}
+{\bkmkend AAAAAAAAAB}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2008,8 +2378,8 @@ namespace {\b CeLishp.Interpreter}\par
 CeLishp/Interpreter/IInterpretable.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/IInterpretable.cs}
 {\xe \v CeLishp/Interpreter/IInterpretable.cs}
-{\bkmkstart AAAAAAAAAB}
-{\bkmkend AAAAAAAAAB}
+{\bkmkstart AAAAAAAAAC}
+{\bkmkend AAAAAAAAAC}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2038,8 +2408,18 @@ namespace {\b CeLishp.Interpreter}\par
 CeLishp/Interpreter/Implementation/Constant.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/Implementation/Constant.cs}
 {\xe \v CeLishp/Interpreter/Implementation/Constant.cs}
-{\bkmkstart AAAAAAAAAC}
-{\bkmkend AAAAAAAAAC}
+{\bkmkstart AAAAAAAAAD}
+{\bkmkend AAAAAAAAAD}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Classes\par
+\pard\plain 
+
+{
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+class {\b CeLishp.Interpreter.Implementation.Constant< T >}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Simple {\b IInputValue} that simply provides a constant value of type T. }}\par}
+}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Namespaces\par
 \pard\plain 
@@ -2060,8 +2440,8 @@ namespace {\b CeLishp.Interpreter.Implementation}\par
 CeLishp/Interpreter/Implementation/NaryAddition.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/Implementation/NaryAddition.cs}
 {\xe \v CeLishp/Interpreter/Implementation/NaryAddition.cs}
-{\bkmkstart AAAAAAAAAD}
-{\bkmkend AAAAAAAAAD}
+{\bkmkstart AAAAAAAAAE}
+{\bkmkend AAAAAAAAAE}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2092,8 +2472,8 @@ namespace {\b CeLishp.Interpreter.Implementation}\par
 CeLishp/Interpreter/Implementation/NarySubtraction.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/Implementation/NarySubtraction.cs}
 {\xe \v CeLishp/Interpreter/Implementation/NarySubtraction.cs}
-{\bkmkstart AAAAAAAAAE}
-{\bkmkend AAAAAAAAAE}
+{\bkmkstart AAAAAAAAAF}
+{\bkmkend AAAAAAAAAF}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2124,8 +2504,8 @@ namespace {\b CeLishp.Interpreter.Implementation}\par
 CeLishp/Interpreter/Implementation/UnaryTrig.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/Implementation/UnaryTrig.cs}
 {\xe \v CeLishp/Interpreter/Implementation/UnaryTrig.cs}
-{\bkmkstart AAAAAAAAAF}
-{\bkmkend AAAAAAAAAF}
+{\bkmkstart AAAAAAAAAG}
+{\bkmkend AAAAAAAAAG}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2156,8 +2536,8 @@ namespace {\b CeLishp.Interpreter.Implementation}\par
 CeLishp/Interpreter/INaryFunction.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/INaryFunction.cs}
 {\xe \v CeLishp/Interpreter/INaryFunction.cs}
-{\bkmkstart AAAAAAAAAG}
-{\bkmkend AAAAAAAAAG}
+{\bkmkstart AAAAAAAAAH}
+{\bkmkend AAAAAAAAAH}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2186,8 +2566,8 @@ namespace {\b CeLishp.Interpreter}\par
 CeLishp/Interpreter/InterpretableNode.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/InterpretableNode.cs}
 {\xe \v CeLishp/Interpreter/InterpretableNode.cs}
-{\bkmkstart AAAAAAAAAH}
-{\bkmkend AAAAAAAAAH}
+{\bkmkstart AAAAAAAAAI}
+{\bkmkend AAAAAAAAAI}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2216,8 +2596,8 @@ namespace {\b CeLishp.Interpreter}\par
 CeLishp/Interpreter/InterpretableTree.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/InterpretableTree.cs}
 {\xe \v CeLishp/Interpreter/InterpretableTree.cs}
-{\bkmkstart AAAAAAAAAI}
-{\bkmkend AAAAAAAAAI}
+{\bkmkstart AAAAAAAAAJ}
+{\bkmkend AAAAAAAAAJ}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2246,8 +2626,8 @@ namespace {\b CeLishp.Interpreter}\par
 CeLishp/Interpreter/Interpreter.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Interpreter/Interpreter.cs}
 {\xe \v CeLishp/Interpreter/Interpreter.cs}
-{\bkmkstart AAAAAAAAAJ}
-{\bkmkend AAAAAAAAAJ}
+{\bkmkstart AAAAAAAAAK}
+{\bkmkend AAAAAAAAAK}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2273,8 +2653,8 @@ namespace {\b CeLishp.Interpreter}\par
 CeLishp/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs}
 {\xe \v CeLishp/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs}
-{\bkmkstart AAAAAAAAAK}
-{\bkmkend AAAAAAAAAK}
+{\bkmkstart AAAAAAAAAL}
+{\bkmkend AAAAAAAAAL}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2283,8 +2663,8 @@ CeLishp/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs File Referenc
 CeLishp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs}
 {\xe \v CeLishp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs}
-{\bkmkstart AAAAAAAAAL}
-{\bkmkend AAAAAAAAAL}
+{\bkmkstart AAAAAAAAAM}
+{\bkmkend AAAAAAAAAM}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2293,8 +2673,8 @@ CeLishp/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs File Ref
 CeLishp/obj/Debug/net8.0/CeLishp.AssemblyInfo.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/net8.0/CeLishp.AssemblyInfo.cs}
 {\xe \v CeLishp/obj/Debug/net8.0/CeLishp.AssemblyInfo.cs}
-{\bkmkstart AAAAAAAAAM}
-{\bkmkend AAAAAAAAAM}
+{\bkmkstart AAAAAAAAAN}
+{\bkmkend AAAAAAAAAN}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2303,8 +2683,28 @@ CeLishp/obj/Debug/net8.0/CeLishp.AssemblyInfo.cs File Reference\par \pard\plain
 CeLishp/obj/Debug/net9.0/CeLishp.AssemblyInfo.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/net9.0/CeLishp.AssemblyInfo.cs}
 {\xe \v CeLishp/obj/Debug/net9.0/CeLishp.AssemblyInfo.cs}
-{\bkmkstart AAAAAAAAAN}
-{\bkmkend AAAAAAAAAN}
+{\bkmkstart AAAAAAAAAO}
+{\bkmkend AAAAAAAAAO}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp/obj/Debug/netstandard2.0/CeLishp.AssemblyInfo.cs File Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp/obj/Debug/netstandard2.0/CeLishp.AssemblyInfo.cs}
+{\xe \v CeLishp/obj/Debug/netstandard2.0/CeLishp.AssemblyInfo.cs}
+{\bkmkstart AAAAAAAAAP}
+{\bkmkend AAAAAAAAAP}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp/obj/Debug/netstandard2.1/CeLishp.AssemblyInfo.cs File Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp/obj/Debug/netstandard2.1/CeLishp.AssemblyInfo.cs}
+{\xe \v CeLishp/obj/Debug/netstandard2.1/CeLishp.AssemblyInfo.cs}
+{\bkmkstart AAAAAAAAAQ}
+{\bkmkend AAAAAAAAAQ}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2313,8 +2713,8 @@ CeLishp/obj/Debug/net9.0/CeLishp.AssemblyInfo.cs File Reference\par \pard\plain
 CeLishp/obj/Debug/net8.0/CeLishp.GlobalUsings.g.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/net8.0/CeLishp.GlobalUsings.g.cs}
 {\xe \v CeLishp/obj/Debug/net8.0/CeLishp.GlobalUsings.g.cs}
-{\bkmkstart AAAAAAAAAO}
-{\bkmkend AAAAAAAAAO}
+{\bkmkstart AAAAAAAAAR}
+{\bkmkend AAAAAAAAAR}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2323,8 +2723,18 @@ CeLishp/obj/Debug/net8.0/CeLishp.GlobalUsings.g.cs File Reference\par \pard\plai
 CeLishp/obj/Debug/net9.0/CeLishp.GlobalUsings.g.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/net9.0/CeLishp.GlobalUsings.g.cs}
 {\xe \v CeLishp/obj/Debug/net9.0/CeLishp.GlobalUsings.g.cs}
-{\bkmkstart AAAAAAAAAP}
-{\bkmkend AAAAAAAAAP}
+{\bkmkstart AAAAAAAAAS}
+{\bkmkend AAAAAAAAAS}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp/obj/Debug/netstandard2.1/CeLishp.GlobalUsings.g.cs File Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp/obj/Debug/netstandard2.1/CeLishp.GlobalUsings.g.cs}
+{\xe \v CeLishp/obj/Debug/netstandard2.1/CeLishp.GlobalUsings.g.cs}
+{\bkmkstart AAAAAAAAAT}
+{\bkmkend AAAAAAAAAT}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2333,8 +2743,28 @@ CeLishp/obj/Debug/net9.0/CeLishp.GlobalUsings.g.cs File Reference\par \pard\plai
 CeLishp/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}
 {\xe \v CeLishp/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs}
-{\bkmkstart AAAAAAAAAQ}
-{\bkmkend AAAAAAAAAQ}
+{\bkmkstart AAAAAAAAAU}
+{\bkmkend AAAAAAAAAU}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs File Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs}
+{\xe \v CeLishp/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs}
+{\bkmkstart AAAAAAAAAV}
+{\bkmkend AAAAAAAAAV}
+\par \pard\plain 
+
+\pard\plain \sect\sbkpage
+\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+CeLishp/obj/Debug/netstandard2.1/.NETStandard,Version=v2.1.AssemblyAttributes.cs File Reference\par \pard\plain 
+{\tc\tcl2 \v CeLishp/obj/Debug/netstandard2.1/.NETStandard,Version=v2.1.AssemblyAttributes.cs}
+{\xe \v CeLishp/obj/Debug/netstandard2.1/.NETStandard,Version=v2.1.AssemblyAttributes.cs}
+{\bkmkstart AAAAAAAAAW}
+{\bkmkend AAAAAAAAAW}
 \par \pard\plain 
 
 \pard\plain \sect\sbkpage
@@ -2343,8 +2773,8 @@ CeLishp/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs File Ref
 CeLishp/Parser/Implementation/SimpleLispSyntax.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Parser/Implementation/SimpleLispSyntax.cs}
 {\xe \v CeLishp/Parser/Implementation/SimpleLispSyntax.cs}
-{\bkmkstart AAAAAAAAAR}
-{\bkmkend AAAAAAAAAR}
+{\bkmkstart AAAAAAAAAX}
+{\bkmkend AAAAAAAAAX}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2375,8 +2805,8 @@ namespace {\b CeLishp.Parser.Implementation}\par
 CeLishp/Parser/ISyntaxProvider.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Parser/ISyntaxProvider.cs}
 {\xe \v CeLishp/Parser/ISyntaxProvider.cs}
-{\bkmkstart AAAAAAAAAS}
-{\bkmkend AAAAAAAAAS}
+{\bkmkstart AAAAAAAAAY}
+{\bkmkend AAAAAAAAAY}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2405,8 +2835,8 @@ namespace {\b CeLishp.Parser}\par
 CeLishp/Parser/SyntaxNode.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Parser/SyntaxNode.cs}
 {\xe \v CeLishp/Parser/SyntaxNode.cs}
-{\bkmkstart AAAAAAAAAT}
-{\bkmkend AAAAAAAAAT}
+{\bkmkstart AAAAAAAAAZ}
+{\bkmkend AAAAAAAAAZ}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 
@@ -2435,8 +2865,8 @@ namespace {\b CeLishp.Parser}\par
 CeLishp/Parser/SyntaxTree.cs File Reference\par \pard\plain 
 {\tc\tcl2 \v CeLishp/Parser/SyntaxTree.cs}
 {\xe \v CeLishp/Parser/SyntaxTree.cs}
-{\bkmkstart AAAAAAAAAU}
-{\bkmkend AAAAAAAAAU}
+{\bkmkstart AAAAAAAABA}
+{\bkmkend AAAAAAAABA}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Classes\par
 \pard\plain 

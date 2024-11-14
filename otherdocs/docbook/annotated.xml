@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
 <title>Class List</title>
-Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">CeLishp.Interpreter.IInputValue</link>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</link>
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T </para>
+<link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">CeLishp.Interpreter.IInputValue</link>
 <para>Input value that can be inserted in a tree - provides a value </para>
 <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link>
 <para>Base interface for interpretable elements </para>

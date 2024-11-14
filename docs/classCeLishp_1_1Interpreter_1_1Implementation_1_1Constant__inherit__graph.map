@@ -1,0 +1,7 @@
+<map id="CeLishp.Interpreter.Implementation.Constant&lt; T &gt;" name="CeLishp.Interpreter.Implementation.Constant&lt; T &gt;">
+<area shape="rect" id="Node000001" title="Simple IInputValue that simply provides a constant value of type T." alt="" coords="5,153,235,193"/>
+<area shape="rect" id="Node000002" href="$interfaceCeLishp_1_1Interpreter_1_1IInputValue.html" title="Input value that can be inserted in a tree &#45; provides a value." alt="" coords="77,79,163,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,120,123,152,117,152,117,120"/>
+<area shape="rect" id="Node000003" href="$interfaceCeLishp_1_1Interpreter_1_1IInterpretable.html" title="Base interface for interpretable elements." alt="" coords="71,5,169,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,46,123,79,117,79,117,46"/>
+</map>

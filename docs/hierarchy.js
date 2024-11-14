@@ -1,7 +1,9 @@
 var hierarchy =
 [
     [ "CeLishp.Interpreter.IInterpretable", "interfaceCeLishp_1_1Interpreter_1_1IInterpretable.html", [
-      [ "CeLishp.Interpreter.IInputValue", "interfaceCeLishp_1_1Interpreter_1_1IInputValue.html", null ],
+      [ "CeLishp.Interpreter.IInputValue", "interfaceCeLishp_1_1Interpreter_1_1IInputValue.html", [
+        [ "CeLishp.Interpreter.Implementation.Constant< T >", "classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant.html", null ]
+      ] ],
       [ "CeLishp.Interpreter.INaryFunction", "interfaceCeLishp_1_1Interpreter_1_1INaryFunction.html", [
         [ "CeLishp.Interpreter.Implementation.NaryAddition", "classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition.html", null ],
         [ "CeLishp.Interpreter.Implementation.NarySubtraction", "classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction.html", null ],

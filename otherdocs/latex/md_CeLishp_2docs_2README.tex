@@ -4,7 +4,9 @@
 \Hypertarget{md_CeLishp_2docs_2README_autotoc_md0}%
 
 
-\doxylink{namespaceCeLishp}{Ce\+Lishp} is a framework for implementing a (domain-\/specific) scripting language into a project.\hypertarget{md_CeLishp_2docs_2README_autotoc_md1}{}\doxysection{\texorpdfstring{Background}{Background}}\label{md_CeLishp_2docs_2README_autotoc_md1}
+\doxylink{namespaceCeLishp}{Ce\+Lishp} is a framework for implementing a (domain-\/specific) scripting language into a project.
+
+\href{https://celishp.skyesprung.com}{\texttt{ Online documentation can be found here.}}\hypertarget{md_CeLishp_2docs_2README_autotoc_md1}{}\doxysection{\texorpdfstring{Background}{Background}}\label{md_CeLishp_2docs_2README_autotoc_md1}
 Have you ever found yourself implementing yet another simple scripting language for a project, when you\textquotesingle{}ve done that too many times already? This project aims to provide a reusable framework for simply adding such a language, where you only need to replace the components you need, and provide a value and function inventory.\hypertarget{md_CeLishp_2docs_2README_autotoc_md2}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_CeLishp_2docs_2README_autotoc_md2}
 \doxylink{namespaceCeLishp}{Ce\+Lishp} provides a set of interfaces that can/must be implemented in order to construct a scripting language. All functions and values derive from {\itshape IInterpretable}, where input values derive from {\itshape IInput\+Value} and functions from {\itshape INary\+Function}.\hypertarget{md_CeLishp_2docs_2README_autotoc_md3}{}\doxysubsection{\texorpdfstring{Quick Start}{Quick Start}}\label{md_CeLishp_2docs_2README_autotoc_md3}
 To get started, the types provided in {\itshape \doxylink{namespaceCeLishp_1_1Interpreter_1_1Implementation}{Ce\+Lishp.\+Interpreter.\+Implementation}} for values and functions as well as the Syntax Provider {\itshape \doxylink{classCeLishp_1_1Parser_1_1Implementation_1_1SimpleLispSyntax}{Ce\+Lishp.\+Parser.\+Implementation.\+Simple\+Lisp\+Syntax}} can be used. A minimal program using these could look like this\+:
@@ -26,7 +28,7 @@ To get started, the types provided in {\itshape \doxylink{namespaceCeLishp_1_1In
 \DoxyCodeLine{\textcolor{comment}{//\ value\ inventory\ is\ the\ possible\ value\ keywords}}
 \DoxyCodeLine{var\ valueInventory\ =\ \textcolor{keyword}{new}\ Dictionary<string,\ IInputValue>()}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ \{\ \textcolor{stringliteral}{"{}seven"{}},\ \textcolor{keyword}{new}\ Constant<float>(7f)\ \},\ \textcolor{comment}{//\ We\ define\ "{}seven"{}\ as\ meaning\ a\ constant\ value\ of\ 7}}
+\DoxyCodeLine{\ \ \ \ \{\ \textcolor{stringliteral}{"{}seven"{}},\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant}{Constant<float>}}(7f)\ \},\ \textcolor{comment}{//\ We\ define\ "{}seven"{}\ as\ meaning\ a\ constant\ value\ of\ 7}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ SimpleLispSyntax\ is\ our\ SyntaxProvider,\ it\ provides\ a\ very\ minimal\ Lisp-\/like\ syntax\ with\ support\ for\ numeric\ literals}}

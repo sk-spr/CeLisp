@@ -6,6 +6,8 @@
 <para><anchor xml:id="_md_CeLishp_2docs_2README_1autotoc_md0"/></para>
 
 <para><link linkend="_namespaceCeLishp">CeLishp</link> is a framework for implementing a (domain-specific) scripting language into a project.</para>
+
+<para><link xlink:href="https://celishp.skyesprung.com">Online documentation can be found here.</link></para>
 <section xml:id="_md_CeLishp_2docs_2README_1autotoc_md1">
 <title>Background</title>
 <para>Have you ever found yourself implementing yet another simple scripting language for a project, when you&apos;ve done that too many times already? This project aims to provide a reusable framework for simply adding such a language, where you only need to replace the components you need, and provide a value and function inventory.</para>

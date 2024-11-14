@@ -1,7 +1,17 @@
 var searchData=
 [
-  ['rootnode_0',['RootNode',['../structCeLishp_1_1Interpreter_1_1InterpretableTree.html#a66fe181b735ae4a213c3ff395e33254a',1,'CeLishp.Interpreter.InterpretableTree.RootNode'],['../classCeLishp_1_1Parser_1_1SyntaxTree.html#ac72fe039ffb7d28abc19b618bd118c2b',1,'CeLishp.Parser.SyntaxTree.RootNode']]],
-  ['run_1',['Run',['../interfaceCeLishp_1_1Interpreter_1_1IInterpretable.html#afe9f84344512801486a8a2156b971e4e',1,'CeLishp.Interpreter.IInterpretable.Run()'],['../classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition.html#a3947f0bcda0f52dc89c675ef61222fc7',1,'CeLishp.Interpreter.Implementation.NaryAddition.Run()'],['../classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction.html#a4f04a3310d76937664da8bdec63356b2',1,'CeLishp.Interpreter.Implementation.NarySubtraction.Run()'],['../classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig.html#a9808862a7401fecce393123799602b9e',1,'CeLishp.Interpreter.Implementation.UnaryTrig.Run()']]],
-  ['runnary_2',['RunNary',['../classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition.html#a2db07d54a87a2664396e1ef80aea77c4',1,'CeLishp.Interpreter.Implementation.NaryAddition.RunNary()'],['../classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction.html#adc676cf298093bd5cb744f1e97d47f37',1,'CeLishp.Interpreter.Implementation.NarySubtraction.RunNary()'],['../classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig.html#a32ee3aa46feb2699cb53a55aeb19c782',1,'CeLishp.Interpreter.Implementation.UnaryTrig.RunNary()'],['../interfaceCeLishp_1_1Interpreter_1_1INaryFunction.html#acfa779ebadc2b4ea9d3acbb823fcdb42',1,'CeLishp.Interpreter.INaryFunction.RunNary()']]],
-  ['runtree_3c_20t_20_3e_3',['RunTree&lt; T &gt;',['../classCeLishp_1_1Interpreter_1_1Interpreter.html#aaace3e11c9e5397567a093bf9ec157eb',1,'CeLishp::Interpreter::Interpreter']]]
+  ['iinputvalue_0',['IInputValue',['../interfaceCeLishp_1_1Interpreter_1_1IInputValue.html',1,'CeLishp::Interpreter']]],
+  ['iinputvalue_2ecs_1',['IInputValue.cs',['../IInputValue_8cs.html',1,'']]],
+  ['iinterpretable_2',['IInterpretable',['../interfaceCeLishp_1_1Interpreter_1_1IInterpretable.html',1,'CeLishp::Interpreter']]],
+  ['iinterpretable_2ecs_3',['IInterpretable.cs',['../IInterpretable_8cs.html',1,'']]],
+  ['inaryfunction_4',['INaryFunction',['../interfaceCeLishp_1_1Interpreter_1_1INaryFunction.html',1,'CeLishp::Interpreter']]],
+  ['inaryfunction_2ecs_5',['INaryFunction.cs',['../INaryFunction_8cs.html',1,'']]],
+  ['interpretablenode_6',['InterpretableNode',['../structCeLishp_1_1Interpreter_1_1InterpretableNode.html',1,'CeLishp::Interpreter']]],
+  ['interpretablenode_2ecs_7',['InterpretableNode.cs',['../InterpretableNode_8cs.html',1,'']]],
+  ['interpretabletree_8',['InterpretableTree',['../structCeLishp_1_1Interpreter_1_1InterpretableTree.html',1,'CeLishp::Interpreter']]],
+  ['interpretabletree_2ecs_9',['InterpretableTree.cs',['../InterpretableTree_8cs.html',1,'']]],
+  ['interpreter_10',['Interpreter',['../classCeLishp_1_1Interpreter_1_1Interpreter.html',1,'CeLishp.Interpreter.Interpreter'],['../classCeLishp_1_1Interpreter_1_1Interpreter.html#a7d54870717cad662b520524a7158c94d',1,'CeLishp.Interpreter.Interpreter.Interpreter()']]],
+  ['interpreter_2ecs_11',['Interpreter.cs',['../Interpreter_8cs.html',1,'']]],
+  ['isyntaxprovider_12',['ISyntaxProvider',['../interfaceCeLishp_1_1Parser_1_1ISyntaxProvider.html',1,'CeLishp::Parser']]],
+  ['isyntaxprovider_2ecs_13',['ISyntaxProvider.cs',['../ISyntaxProvider_8cs.html',1,'']]]
 ];

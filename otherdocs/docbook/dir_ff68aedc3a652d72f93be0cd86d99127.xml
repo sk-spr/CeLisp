@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_ff68aedc3a652d72f93be0cd86d99127" xml:lang="en-US">
+<title>CeLishp/obj/Debug/netstandard2.1 Directory Reference</title>
+<indexterm><primary>CeLishp/obj/Debug/netstandard2.1 Directory Reference</primary></indexterm>
+Directory dependency graph for netstandard2.1:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_ff68aedc3a652d72f93be0cd86d99127_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__8NETStandard_00Version_0av2_81_8AssemblyAttributes_8cs">.NETStandard,Version=v2.1.AssemblyAttributes.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_netstandard2_81_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_netstandard2_81_2CeLishp_8GlobalUsings_8g_8cs">CeLishp.GlobalUsings.g.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

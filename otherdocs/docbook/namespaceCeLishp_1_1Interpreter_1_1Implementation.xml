@@ -5,6 +5,10 @@
 <simplesect>
     <title>Classes    </title>
         <itemizedlist>
+            <listitem><para>class <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link></para>
+
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T. </para>
+</listitem>
             <listitem><para>class <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition">NaryAddition</link></para>
 
 <para>Addition function taking a variable number of inputs. </para>

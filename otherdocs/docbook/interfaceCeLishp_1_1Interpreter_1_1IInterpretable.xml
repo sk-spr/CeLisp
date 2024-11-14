@@ -67,7 +67,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Implemented in <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a3947f0bcda0f52dc89c675ef61222fc7">CeLishp.Interpreter.Implementation.NaryAddition</link>, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1a4f04a3310d76937664da8bdec63356b2">CeLishp.Interpreter.Implementation.NarySubtraction</link>, and <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a9808862a7401fecce393123799602b9e">CeLishp.Interpreter.Implementation.UnaryTrig</link>.</para>
+Implemented in <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1abf7ca0b2362b61654079cd8332c7591b">CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</link>, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NaryAddition_1a3947f0bcda0f52dc89c675ef61222fc7">CeLishp.Interpreter.Implementation.NaryAddition</link>, <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1NarySubtraction_1a4f04a3310d76937664da8bdec63356b2">CeLishp.Interpreter.Implementation.NarySubtraction</link>, and <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1UnaryTrig_1a9808862a7401fecce393123799602b9e">CeLishp.Interpreter.Implementation.UnaryTrig</link>.</para>
 </section>
 <para>
 The documentation for this interface was generated from the following file:</para>

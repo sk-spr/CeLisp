@@ -3,6 +3,15 @@
 <title>CeLishp/Interpreter/Implementation/Constant.cs File Reference</title>
 <indexterm><primary>CeLishp/Interpreter/Implementation/Constant.cs</primary></indexterm>
 <simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</link></para>
+
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
     <title>Namespaces    </title>
         <itemizedlist>
             <listitem><para>namespace <link linkend="_namespaceCeLishp">CeLishp</link></para>

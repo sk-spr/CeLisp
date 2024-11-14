@@ -3,6 +3,7 @@
     <info>
     <title>CeLishp</title>
     </info>
+    <xi:include href="md_CeLishp_2docs_2README.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <chapter>
     <title>Namespace Documentation</title>
 <xi:include href="namespaceCeLishp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -13,6 +14,7 @@
 </chapter>
 <chapter>
     <title>Class Documentation</title>
+    <xi:include href="classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceCeLishp_1_1Interpreter_1_1IInputValue.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceCeLishp_1_1Interpreter_1_1IInterpretable.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="interfaceCeLishp_1_1Interpreter_1_1INaryFunction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -29,6 +31,7 @@
 </chapter>
 <chapter>
     <title>File Documentation</title>
+    <xi:include href="README_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="IInputValue_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="IInterpretable_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="Constant_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -43,9 +46,14 @@
     <xi:include href="_8NETCoreApp_00Version_0av8_80_8AssemblyAttributes_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="net8_80_2CeLishp_8AssemblyInfo_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="net9_80_2CeLishp_8AssemblyInfo_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="netstandard2_80_2CeLishp_8AssemblyInfo_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="netstandard2_81_2CeLishp_8AssemblyInfo_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="net8_80_2CeLishp_8GlobalUsings_8g_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="net9_80_2CeLishp_8GlobalUsings_8g_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="netstandard2_81_2CeLishp_8GlobalUsings_8g_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="_8NETCoreApp_00Version_0av9_80_8AssemblyAttributes_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_8NETStandard_00Version_0av2_80_8AssemblyAttributes_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_8NETStandard_00Version_0av2_81_8AssemblyAttributes_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="SimpleLispSyntax_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="ISyntaxProvider_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="SyntaxNode_8cs.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

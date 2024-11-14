@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant" xml:lang="en-US">
+<title>CeLishp.Interpreter.Implementation.Constant&lt; T &gt; Class Template Reference</title>
+<indexterm><primary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</primary></indexterm>
+<para>
+
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T. </para>
+ 
+</para>
+Inheritance diagram for CeLishp.Interpreter.Implementation.Constant&lt; T &gt;:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for CeLishp.Interpreter.Implementation.Constant&lt; T &gt;:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1af0109ce71c21db07584213f04dfadcd9">Constant</link> (T val)</para>
+
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T. </para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1abf7ca0b2362b61654079cd8332c7591b">Run</link> (object[] input)</para>
+
+<para>Run the <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link> as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> </para>
+</listitem>
+            <listitem><para>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1a825abfd2c1575457448d0f41cb42a363">GetValue</link> ()</para>
+
+<para>Get the value of the <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link>. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">CeLishp.Interpreter.IInputValue</link>Public Member Functions inherited from <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">CeLishp.Interpreter.IInterpretable</link><section>
+<title>Detailed Description</title>
+
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The type of the constant to be provided</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1af0109ce71c21db07584213f04dfadcd9"/><section>
+    <title>Constant()</title>
+<indexterm><primary>Constant</primary><secondary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</primary><secondary>Constant</secondary></indexterm>
+<para><computeroutput><link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">CeLishp.Interpreter.Implementation.Constant</link>&lt; T &gt;.<link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link> (T val)</computeroutput></para><para>
+
+<para>Simple <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link> that simply provides a constant value of type T. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>The type of the constant to be provided</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1a825abfd2c1575457448d0f41cb42a363"/><section>
+    <title>GetValue()</title>
+<indexterm><primary>GetValue</primary><secondary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</primary><secondary>GetValue</secondary></indexterm>
+<para><computeroutput>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">CeLishp.Interpreter.Implementation.Constant</link>&lt; T &gt;.GetValue ( )</computeroutput></para><para>
+
+<para>Get the value of the <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link>. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para><link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link>&apos;s value of type <emphasis>T</emphasis> </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue_1a861721fa8c59a6bf4383aea017ffa067">CeLishp.Interpreter.IInputValue</link>.</para>
+</section>
+<anchor xml:id="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant_1abf7ca0b2362b61654079cd8332c7591b"/><section>
+    <title>Run()</title>
+<indexterm><primary>Run</primary><secondary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>CeLishp.Interpreter.Implementation.Constant&lt; T &gt;</primary><secondary>Run</secondary></indexterm>
+<para><computeroutput>object <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">CeLishp.Interpreter.Implementation.Constant</link>&lt; T &gt;.Run (object[] input)</computeroutput></para><para>
+
+<para>Run the <link linkend="_classCeLishp_1_1Interpreter_1_1Implementation_1_1Constant">Constant</link> as an <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable">IInterpretable</link> </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>input</entry><entry>
+<para>Inputs. Should be null.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>NotImplementedException</entry><entry>
+<para>Currently throws, as Constants expect to be treated as <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInputValue">IInputValue</link></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_interfaceCeLishp_1_1Interpreter_1_1IInterpretable_1afe9f84344512801486a8a2156b971e4e">CeLishp.Interpreter.IInterpretable</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+CeLishp/Interpreter/Implementation/<link linkend="_Constant_8cs">Constant.cs</link></section>
+</section>

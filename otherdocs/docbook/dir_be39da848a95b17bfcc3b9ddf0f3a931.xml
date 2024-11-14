@@ -5,6 +5,8 @@
 <simplesect>
     <title>Directories    </title>
         <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_219d7bbbe22096e62508c2caf45d2de4">docs</link></para>
+</listitem>
             <listitem><para>directory <link linkend="_dir_cd6116f1cac427869638de14e8dbd926">Interpreter</link></para>
 </listitem>
             <listitem><para>directory <link linkend="_dir_5e6c130f348d09b561bdce9c7a0b8b15">obj</link></para>

@@ -16,7 +16,7 @@ Directory dependency graph for net9.0:<para>
         <itemizedlist>
             <listitem><para>file <link linkend="__8NETCoreApp_00Version_0av9_80_8AssemblyAttributes_8cs">.NETCoreApp,Version=v9.0.AssemblyAttributes.cs</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_net9_80_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
+            <listitem><para>file <link linkend="_Debug_2net9_80_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
 </listitem>
             <listitem><para>file <link linkend="_net9_80_2CeLishp_8GlobalUsings_8g_8cs">CeLishp.GlobalUsings.g.cs</link></para>
 </listitem>

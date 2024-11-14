@@ -14,9 +14,9 @@ Directory dependency graph for netstandard2.0:<para>
 <simplesect>
     <title>Files    </title>
         <itemizedlist>
-            <listitem><para>file <link linkend="__8NETStandard_00Version_0av2_80_8AssemblyAttributes_8cs">.NETStandard,Version=v2.0.AssemblyAttributes.cs</link></para>
+            <listitem><para>file <link linkend="_Debug_2netstandard2_80_2_8NETStandard_00Version_0av2_80_8AssemblyAttributes_8cs">.NETStandard,Version=v2.0.AssemblyAttributes.cs</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_netstandard2_80_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
+            <listitem><para>file <link linkend="_Debug_2netstandard2_80_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

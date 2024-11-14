@@ -1,7 +1,7 @@
 var searchData=
 [
   ['celishp_0',['CeLishp',['../namespaceCeLishp.html',1,'']]],
-  ['celishp_2eassemblyinfo_2ecs_1',['CeLishp.AssemblyInfo.cs',['../net8_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../net9_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../netstandard2_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../netstandard2_81_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)']]],
+  ['celishp_2eassemblyinfo_2ecs_1',['CeLishp.AssemblyInfo.cs',['../Debug_2net8_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../Debug_2net9_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../Debug_2netstandard2_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../Debug_2netstandard2_81_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../Release_2net8_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)'],['../Release_2netstandard2_80_2CeLishp_8AssemblyInfo_8cs.html',1,'(Global Namespace)']]],
   ['celishp_2eglobalusings_2eg_2ecs_2',['CeLishp.GlobalUsings.g.cs',['../net8_80_2CeLishp_8GlobalUsings_8g_8cs.html',1,'(Global Namespace)'],['../net9_80_2CeLishp_8GlobalUsings_8g_8cs.html',1,'(Global Namespace)'],['../netstandard2_81_2CeLishp_8GlobalUsings_8g_8cs.html',1,'(Global Namespace)']]],
   ['celishp_3a_20extensible_20modular_20scripting_20language_3',['CeLishp: Extensible &amp; Modular scripting language',['../md_CeLishp_2docs_2README.html',1,'']]],
   ['celishp_3a_3ainterpreter_4',['Interpreter',['../namespaceCeLishp_1_1Interpreter.html',1,'CeLishp']]],

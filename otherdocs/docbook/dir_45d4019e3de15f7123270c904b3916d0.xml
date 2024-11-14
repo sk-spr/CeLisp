@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_45d4019e3de15f7123270c904b3916d0" xml:lang="en-US">
+<title>CeLishp/obj/Release/net8.0 Directory Reference</title>
+<indexterm><primary>CeLishp/obj/Release/net8.0 Directory Reference</primary></indexterm>
+Directory dependency graph for net8.0:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_45d4019e3de15f7123270c904b3916d0_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_Release_2net8_80_2_8NETCoreApp_00Version_0av8_80_8AssemblyAttributes_8cs">.NETCoreApp,Version=v8.0.AssemblyAttributes.cs</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_Release_2net8_80_2CeLishp_8AssemblyInfo_8cs">CeLishp.AssemblyInfo.cs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -16,6 +16,8 @@ Directory dependency graph for obj:<para>
         <itemizedlist>
             <listitem><para>directory <link linkend="_dir_def6dd18564200a3525d2e2d86e3aea3">Debug</link></para>
 </listitem>
+            <listitem><para>directory <link linkend="_dir_07ed2ed025b4e000fd1eaa2e0cd68343">Release</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
 </section>

@@ -5,7 +5,6 @@ namespace CeLishp.Interpreter
     /// </summary>
     public interface IInputValue : IInterpretable
     {
-        public object GetValue();
+        object GetValue();
     }
-    
 }

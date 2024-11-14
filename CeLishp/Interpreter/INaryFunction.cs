@@ -10,6 +10,6 @@ namespace CeLishp.Interpreter
         /// </summary>
         /// <param name="inputs">The input values to be operated on</param>
         /// <returns>The result of the given function over the given inputs.</returns>
-        public object RunNary(object[] inputs);
+        object RunNary(object[] inputs);
     }
 }

@@ -13,7 +13,8 @@ namespace CeLishp.Parser
         /// </summary>
         /// <param name="source">Source code to be parsed</param>
         /// <returns><see cref="SyntaxTree"/> of the parsed source code</returns>
-        public SyntaxTree GenerateTree(string source);
+        SyntaxTree GenerateTree(string source);
+
         /// <summary>
         /// Parse a SyntaxTree and generate an <see cref="InterpretableTree"/> that can be run by an <see cref="Interpreter"/>
         /// </summary>
@@ -21,7 +22,7 @@ namespace CeLishp.Parser
         /// <param name="functionInventory">A dictionary containing the function names and their corresponding <see cref="INaryFunction"/></param>
         /// <param name="valueInventory">A dictionary containing value names as they would appear in the <see cref="SyntaxTree"/> and their corresponding <see cref="IInputValue"/></param>
         /// <returns><see cref="InterpretableTree"/> that can be run</returns>
-        public InterpretableTree ParseTree(SyntaxTree parsedSource, 
+        InterpretableTree ParseTree(SyntaxTree parsedSource,
             Dictionary<string, INaryFunction> functionInventory,
             Dictionary<string, IInputValue> valueInventory);
     }

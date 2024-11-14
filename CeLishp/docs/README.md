@@ -1,6 +1,8 @@
 # CeLishp: Extensible & Modular scripting language
 CeLishp is a framework for implementing a (domain-specific) scripting language into a project.
 
+[Online documentation can be found here.](https://celishp.skyesprung.com)
+
 ## Background
 Have you ever found yourself implementing yet another simple scripting language for a project, when you've done that too many times already? This project aims to provide a reusable framework for simply adding such a language, where you only need to replace the components you need, and provide a value and function inventory.
 

@@ -12,6 +12,6 @@ namespace CeLishp.Interpreter
         /// </summary>
         /// <param name="input">The inputs to the interpretable. Can be null.</param>
         /// <returns>The result of the operation</returns>
-        public object Run(object[] input);
+        object Run(object[] input);
     }
 }

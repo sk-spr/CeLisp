@@ -1,6 +1,0 @@
-<map id="CeLishp.Parser.SyntaxTree" name="CeLishp.Parser.SyntaxTree">
-<area shape="rect" id="Node000001" title="Syntax tree representing a parsed formula." alt="" coords="8,94,190,120"/>
-<area shape="rect" id="Node000002" href="$structCeLishp_1_1Parser_1_1SyntaxNode.html" title="A node in a syntax tree: Contains a function/keyword/literal and an optional list of child nodes." alt="" coords="5,5,193,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,47,102,94,96,94,96,47"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="210,11,219,18,211,25,194,28,193,23,209,20,214,18,207,15"/>
-</map>

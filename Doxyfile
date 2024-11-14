@@ -1309,7 +1309,7 @@ CLANG_OPTIONS          =
 # If clang assisted parsing is enabled you can provide the clang parser with the
 # path to the directory containing a file called compile_commands.json. This
 # file is the compilation database (see:
-# http://clang.llvm.org/docs/HowToSetupToolingForLLVM.html) containing the
+# http://clang.llvm.org/otherdocs/HowToSetupToolingForLLVM.html) containing the
 # options used when the source files were built. This is equivalent to
 # specifying the -p option to a clang tool, such as clang-check. These options
 # will then be passed to the parser. Any options specified with CLANG_OPTIONS
@@ -1354,7 +1354,7 @@ GENERATE_HTML          = YES
 # The default directory is: html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_OUTPUT            = dochtml
+HTML_OUTPUT            = docs
 
 # The HTML_FILE_EXTENSION tag can be used to specify the file extension for each
 # generated HTML page (for example: .htm, .php, .asp).
@@ -2026,7 +2026,7 @@ GENERATE_LATEX         = YES
 # The default directory is: latex.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-LATEX_OUTPUT           = docs/latex
+LATEX_OUTPUT           = otherdocs/latex
 
 # The LATEX_CMD_NAME tag can be used to specify the LaTeX command name to be
 # invoked.
@@ -2211,7 +2211,7 @@ GENERATE_RTF           = YES
 # The default directory is: rtf.
 # This tag requires that the tag GENERATE_RTF is set to YES.
 
-RTF_OUTPUT             = docs/rtf
+RTF_OUTPUT             = otherdocs/rtf
 
 # If the COMPACT_RTF tag is set to YES, Doxygen generates more compact RTF
 # documents. This may be useful for small projects and may help to save some
@@ -2352,7 +2352,7 @@ GENERATE_DOCBOOK       = YES
 # The default directory is: docbook.
 # This tag requires that the tag GENERATE_DOCBOOK is set to YES.
 
-DOCBOOK_OUTPUT         = docs/docbook
+DOCBOOK_OUTPUT         = otherdocs/docbook
 
 #---------------------------------------------------------------------------
 # Configuration options for the AutoGen Definitions output
